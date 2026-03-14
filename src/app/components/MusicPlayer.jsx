@@ -19,6 +19,29 @@ export default function MusicPlayer() {
     }
   }, []);
 
+  // Memantau perubahan tab browser / pindah aplikasi
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (!audioRef.current) return;
+      
+      if (document.hidden) {
+        // Jika tab tidak aktif (hidden), selalu di-pause
+        audioRef.current.pause();
+      } else {
+        // Jika tab aktif kembali dan statusnya memang 'sedang play', lanjutkan musiknya
+        if (isPlaying) {
+          audioRef.current.play().catch((e) => console.log(e));
+        }
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [isPlaying]);
+
   const togglePlay = () => {
     if (isPlaying) {
       audioRef.current.pause();
