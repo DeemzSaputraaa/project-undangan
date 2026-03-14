@@ -57,7 +57,7 @@ export default function MusicPlayer() {
         Ganti src="/music.mp3" dengan nama file musik yang Anda miliki di folder public.
         Misalnya jika Anda punya lagu "wedding.mp3" di folder public, ganti menjadi src="/wedding.mp3"
       */}
-      <audio ref={audioRef} loop src="music/kasih-putih.mp3" />
+      <audio ref={audioRef} loop src="music/kasih-putih.mp3" style={{ display: 'none' }} />
       
       <button 
         className={`music-btn ${isPlaying ? "playing" : ""}`}
