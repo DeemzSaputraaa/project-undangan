@@ -1,7 +1,10 @@
-import Countdown from "../components/Countdown";
+
 import RsvpForm from "../components/RsvpForm";
 import HeroSlider from "../components/HeroSlider";
 import MusicPlayer from "../components/MusicPlayer";
+import WeddingGift from "../components/WeddingGift";
+import WishesSection from "../components/WishesSection";
+import ClosingSection from "../components/ClosingSection";
 
 export default function UndanganPage() {
   return (
@@ -32,152 +35,165 @@ export default function UndanganPage() {
             Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan acara pernikahan putra-putri kami:
           </p>
           
-          <div className="mempelai-grid">
-            {/* Mempelai Wanita */}
-            <div className="card" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "clamp(30px, 5vw, 50px) 20px" }}>
-              <div style={{ width: "130px", height: "130px", borderRadius: "50%", backgroundImage: "url('/images/wanita.jpg')", backgroundSize: "cover", backgroundPosition: "center", marginBottom: "20px", border: "4px solid rgba(255, 220, 228, 0.2)", boxShadow: "0 10px 30px rgba(0,0,0,0.3)" }}></div>
-              <h3 style={{ fontFamily: "var(--font-heading), serif", fontSize: "clamp(1.8rem, 3vw, 2.2rem)", color: "var(--ink)", margin: "0 0 12px 0", letterSpacing: "1px" }}>Lukmaniati</h3>
-              <p style={{ color: "var(--ink-soft)", lineHeight: "1.6", margin: 0, fontSize: "0.95rem" }}>
-                Putri dari Pasangan<br/>
-                <strong style={{ color: "var(--accent)", fontSize: "1.05rem", display: "block", marginTop: "4px" }}>Bapak Sukidi (alm) & Ibu Yatinah</strong>
+          <div className="mempelai-grid" style={{ gap: "clamp(40px, 5vw, 60px)", marginTop: "10px" }}>
+            {/* Mempelai Pria */}
+            <div className="mempelai-wrapper" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+              <div style={{ 
+                width: "min(250px, 65vw)", 
+                aspectRatio: "4/5", 
+                borderRadius: "200px", 
+                backgroundImage: "url('/images/pria.jpg')", 
+                backgroundSize: "108%", 
+                backgroundPosition: "center 25%", 
+                marginBottom: "24px", 
+                marginTop: "-30px",
+                border: "6px solid rgba(255, 220, 228, 0.25)", 
+                boxShadow: "0 14px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,220,228,0.1)" 
+              }}></div>
+              <h3 style={{ fontFamily: "var(--font-script), 'Great Vibes', cursive", fontSize: "clamp(3.5rem, 8vw, 4.5rem)", color: "var(--accent)", margin: "0 0 -10px 0", fontWeight: 400, transform: "rotate(-2deg)" }}>
+                Rio
+              </h3>
+              <h4 style={{ fontFamily: "var(--font-heading), serif", fontSize: "clamp(1.6rem, 4vw, 2.2rem)", color: "var(--ink)", margin: "0 0 24px 0", fontWeight: 500, letterSpacing: "1px" }}>
+                Rio Setiawan
+              </h4>
+              <p style={{ color: "var(--ink-soft)", lineHeight: "1.7", margin: 0, fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)" }}>
+                Putra dari<br/>
+                <strong style={{ color: "var(--accent)", fontSize: "clamp(0.95rem, 1.6vw, 1.1rem)", display: "block", marginTop: "6px", fontWeight: 500 }}>Bapak Sumedi & Ibu Supatnaten</strong>
               </p>
             </div>
 
             {/* Dan / & */}
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "10px" }}>
-              <span style={{ fontFamily: "var(--font-heading), serif", fontSize: "clamp(3rem, 6vw, 5rem)", color: "var(--gold)", opacity: 0.8, textShadow: "0 4px 12px rgba(0,0,0,0.3)" }}>&</span>
+            <div className="mempelai-ampersand">
+              <span style={{ fontFamily: "var(--font-script), 'Great Vibes', cursive", fontSize: "clamp(3.5rem, 8vw, 5rem)", color: "var(--gold)", opacity: 0.8, textShadow: "0 4px 12px rgba(0,0,0,0.3)" }}>&</span>
             </div>
 
-            {/* Mempelai Pria */}
-            <div className="card" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "clamp(30px, 5vw, 50px) 20px" }}>
-              <div style={{ width: "130px", height: "130px", borderRadius: "50%", backgroundImage: "url('/images/pria.jpg')", backgroundSize: "cover", backgroundPosition: "center", marginBottom: "20px", border: "4px solid rgba(255, 220, 228, 0.2)", boxShadow: "0 10px 30px rgba(0,0,0,0.3)" }}></div>
-              <h3 style={{ fontFamily: "var(--font-heading), serif", fontSize: "clamp(1.8rem, 3vw, 2.2rem)", color: "var(--ink)", margin: "0 0 12px 0", letterSpacing: "1px" }}>Rio Setiawan</h3>
-              <p style={{ color: "var(--ink-soft)", lineHeight: "1.6", margin: 0, fontSize: "0.95rem" }}>
-                Putra dari Pasangan<br/>
-                <strong style={{ color: "var(--accent)", fontSize: "1.05rem", display: "block", marginTop: "4px" }}>Bapak Sumedi & Ibu Supatnaten</strong>
+            {/* Mempelai Wanita */}
+            <div className="mempelai-wrapper" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+              <div style={{ 
+                width: "min(250px, 65vw)", 
+                aspectRatio: "4/5", 
+                borderRadius: "200px", 
+                backgroundImage: "url('/images/wanita.jpg')", 
+                backgroundSize: "108%", 
+                backgroundPosition: "center 25%", 
+                marginBottom: "24px", 
+                marginTop: "-30px",
+                border: "6px solid rgba(255, 220, 228, 0.25)", 
+                boxShadow: "0 14px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,220,228,0.1)" 
+              }}></div>
+              <h3 style={{ fontFamily: "var(--font-script), 'Great Vibes', cursive", fontSize: "clamp(3.5rem, 8vw, 4.5rem)", color: "var(--accent)", margin: "0 0 -10px 0", fontWeight: 400, transform: "rotate(-2deg)" }}>
+                Lukmaniati
+              </h3>
+              <h4 style={{ fontFamily: "var(--font-heading), serif", fontSize: "clamp(1.6rem, 4vw, 2.2rem)", color: "var(--ink)", margin: "0 0 24px 0", fontWeight: 500, letterSpacing: "1px" }}>
+                Lukmaniati
+              </h4>
+              <p style={{ color: "var(--ink-soft)", lineHeight: "1.7", margin: 0, fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)" }}>
+                Putri Kedua dari<br/>
+                <strong style={{ color: "var(--accent)", fontSize: "clamp(0.95rem, 1.6vw, 1.1rem)", display: "block", marginTop: "6px", fontWeight: 500 }}>Bapak Sukidi (alm) & Ibu Yatinah</strong>
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div style={{ textAlign: "center", marginBottom: "28px" }}>
-            <p className="pill">Hitung Mundur</p>
-            <h2 className="section-title">Menuju Hari Bahagia</h2>
-          </div>
-          <Countdown targetDate="2026-08-16T08:00:00+07:00" />
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container split">
-          <div className="card">
-            <p className="pill">Cerita Kami</p>
-            <h2 className="section-title">Dua Hati, Satu Perjalanan</h2>
-            <p className="section-lead">
-              Pertemuan singkat di sebuah kafe menjadi awal dari cerita panjang
-              kami. Seiring waktu, kami belajar untuk saling mendukung dan
-              bertumbuh. Kini kami siap melangkah ke babak baru bersama.
-            </p>
-          </div>
-          <div className="card">
-            <p className="pill">Dress Code</p>
-            <h3 className="section-title">Earthy Neutral</h3>
-            <p className="section-lead">
-              Kenakan warna hangat dan natural agar selaras dengan nuansa acara.
-              Mohon hindari warna putih polos.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <h2 className="section-title">Galeri</h2>
-          <p className="section-lead">
-            Beberapa momen yang kami abadikan selama perjalanan menuju hari ini.
+      {/* ── ACARA / EVENT SECTION ── */}
+      <section className="section" id="acara">
+        <div className="container" style={{ textAlign: "center" }}>
+          <p className="pill" style={{ marginBottom: "16px" }}>Jadwal Acara</p>
+          <h2 className="section-title">Waktu & Tempat</h2>
+          <p className="section-lead" style={{ margin: "0 auto 40px" }}>
+            Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara:
           </p>
-          <div className="gallery-grid">
-            {[
-              "Moment 01",
-              "Moment 02",
-              "Moment 03",
-              "Moment 04",
-              "Moment 05",
-              "Moment 06",
-            ].map((item) => (
-              <div className="gallery-item" key={item}>
-                {item}
+
+          <div className="acara-grid">
+            {/* Akad Nikah */}
+            <div className="acara-card">
+              <div className="acara-card-inner">
+                <h3 className="acara-title">AKAD NIKAH</h3>
+                <p className="acara-day">MINGGU</p>
+                <p className="acara-date">16</p>
+                <p className="acara-month">AGUSTUS 2026</p>
+                <p className="acara-time">Pukul : 08:00 WIB</p>
+                
+                <div className="acara-divider">
+                  <span className="acara-divider-line"></span>
+                </div>
+
+                <p className="acara-location">
+                  <strong>Tempat : Kediaman Mempelai Wanita</strong><br/>
+                  Ds Pagu, Wates, Kediri, Jawa Timur
+                </p>
+
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="acara-btn">
+                  📍 LIHAT LOKASI
+                </a>
+              </div>
+            </div>
+
+            {/* Resepsi */}
+            <div className="acara-card">
+              <div className="acara-card-inner">
+                <h3 className="acara-title">RESEPSI</h3>
+                <p className="acara-day">MINGGU</p>
+                <p className="acara-date">16</p>
+                <p className="acara-month">AGUSTUS 2026</p>
+                <p className="acara-time">Pukul : 10:00 WIB</p>
+                
+                <div className="acara-divider">
+                  <span className="acara-divider-line"></span>
+                </div>
+
+                <p className="acara-location">
+                  <strong>Tempat : Kediaman Mempelai Wanita</strong><br/>
+                  Ds Pagu, Wates, Kediri, Jawa Timur
+                </p>
+
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="acara-btn">
+                  📍 LIHAT LOKASI
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="story" style={{ paddingTop: "clamp(40px, 5vw, 60px)", paddingBottom: "clamp(40px, 5vw, 60px)" }}>
+        <div className="container">
+          <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto" }}>
+            <p className="pill" style={{ marginBottom: "16px" }}>True Story</p>
+            <h2 className="section-title">Perjalanan Cinta Kami</h2>
+            <p style={{ color: "var(--ink-soft)", lineHeight: "1.8", fontSize: "clamp(0.95rem, 1.5vw, 1.1rem)", fontStyle: "italic", marginTop: "20px" }}>
+              "Pertemuan sederhana yang tak pernah kami rencanakan menjadi awal dari cerita yang panjang. Melewati banyak tawa, tangis, serta proses saling mengerti. Kini, kami berdiri di sini siap untuk memulai babak baru bersama-sama dan selamanya."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="gallery">
+        <div className="container" style={{ textAlign: "center" }}>
+          <p className="pill" style={{ marginBottom: "16px" }}>Our Gallery</p>
+          <h2 className="section-title">Momen Kebahagiaan</h2>
+          
+          <div className="gallery-zigzag">
+            {/* 8 Images for Zigzag Layout */}
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+              <div key={num} className="gallery-item-zigzag">
+                {/* Fallback pattern / image */}
+                <div 
+                  className="gallery-img-bg"
+                  style={{ backgroundImage: `url('/images/gallery${num}.jpg')` }}
+                />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section" id="rsvp">
-        <div className="container split">
-          <div>
-            <p className="pill">Konfirmasi</p>
-            <h2 className="section-title">RSVP &amp; Ucapan</h2>
-            <p className="section-lead">
-              Silakan konfirmasi kehadiran dan tinggalkan doa terbaik Anda. Kami
-              akan menyimpan data ini untuk keperluan acara.
-            </p>
-          </div>
-          <div className="card">
-            <RsvpForm />
-          </div>
-        </div>
-      </section>
+      <WeddingGift />
 
-      <section className="section">
-        <div className="container split">
-          <div className="card">
-            <p className="pill">Hadiah</p>
-            <h2 className="section-title">Tanda Kasih</h2>
-            <p className="section-lead">
-              Kehadiran Anda sudah sangat berarti bagi kami. Namun, jika ingin
-              memberikan tanda kasih, berikut informasi yang dapat digunakan.
-            </p>
-            <div className="timeline">
-              <div className="timeline-item">
-                <h4>Bank BCA</h4>
-                <p>123 456 7890</p>
-                <p>a.n. Aruna Prameswari</p>
-              </div>
-              <div className="timeline-item">
-                <h4>Bank Mandiri</h4>
-                <p>987 654 3210</p>
-                <p>a.n. Naya Putra</p>
-              </div>
-            </div>
-          </div>
-          <div className="card">
-            <p className="pill">Kontak</p>
-            <h2 className="section-title">Informasi</h2>
-            <p className="section-lead">
-              Jika ada pertanyaan, silakan hubungi kami melalui nomor berikut.
-            </p>
-            <div className="timeline">
-              <div className="timeline-item">
-                <h4>Aruna</h4>
-                <p>+62 812-3456-7890</p>
-              </div>
-              <div className="timeline-item">
-                <h4>Naya</h4>
-                <p>+62 811-2233-4455</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <WishesSection />
 
-      <footer className="footer">
-        Terima kasih atas doa dan kehadiran Anda. <br />
-        Dengan cinta, Aruna &amp; Naya.
-      </footer>
+      <ClosingSection />
       
       <MusicPlayer />
     </div>

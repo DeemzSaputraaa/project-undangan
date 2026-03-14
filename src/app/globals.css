@@ -18,6 +18,15 @@
   --glass-border: rgba(255, 220, 228, 0.2);
 }
 
+/* Utility to hide standard scrollbars but keep scrolling functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
 *,
 *::before,
 *::after {
@@ -305,31 +314,7 @@ img {
   background-position: center 20%;
   background-repeat: no-repeat;
   background-color: #501f30;
-  transition: transform 3.5s ease-out;
-}
-
-/* Hidden: offscreen right, instant */
-.hs-slide--hidden {
-  transform: translateX(100%);
-  z-index: 0;
-}
-
-/* Entering: slide in from right */
-.hs-slide--enter {
-  transform: translateX(0);
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 2;
-}
-
-.hs-slide--enter .hs-slide-img {
-  transform: scale(1.05);
-}
-
-/* Exiting: slide out to left slightly (parallax) so new slide covers it fully */
-.hs-slide--exit {
-  transform: translateX(-20%);
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1;
+  transition: transform 4s ease-out;
 }
 
 /* — Wine color overlay — */
@@ -430,17 +415,22 @@ img {
   background: #fff;
 }
 
-/* — Vertical Countdown (Left Edge) — */
+/* — Countdown (Horizontal on Mobile, Vertical on Desktop) — */
 .hs-countdown-vertical {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: clamp(20px, 4vw, 45px);
+  bottom: clamp(30px, 8vw, 60px);
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 10;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 24px;
   color: #fff;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 12px 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 220, 228, 0.15);
+  backdrop-filter: blur(8px);
 }
 
 .hs-countdown-item {
@@ -454,10 +444,35 @@ img {
 .hs-countdown-item:not(:last-child)::after {
   content: "";
   position: absolute;
-  bottom: -16px;
-  width: 24px;
-  height: 1px;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 24px;
   background: rgba(255, 220, 228, 0.2);
+}
+
+@media (min-width: 800px) {
+  .hs-countdown-vertical {
+    bottom: auto;
+    top: 50%;
+    left: clamp(20px, 4vw, 45px);
+    transform: translateY(-50%);
+    flex-direction: column;
+    background: transparent;
+    padding: 0;
+    border: none;
+    backdrop-filter: none;
+  }
+
+  .hs-countdown-item:not(:last-child)::after {
+    right: auto;
+    bottom: -16px;
+    top: auto;
+    transform: none;
+    width: 24px;
+    height: 1px;
+  }
 }
 
 .hs-cd-val {
@@ -530,20 +545,190 @@ img {
   gap: clamp(30px, 4vw, 40px);
 }
 
-.mempelai-grid > .card {
+.mempelai-grid > .card,
+.mempelai-wrapper {
   width: 100%;
   max-width: 480px;
 }
 
 @media (min-width: 800px) {
   .mempelai-grid {
-    flex-direction: row;
+    flex-direction: row !important;
+    align-items: flex-start !important;
   }
   
-  .mempelai-grid > .card {
+  .mempelai-grid > .card,
+  .mempelai-wrapper {
     flex: 1 1 300px;
     max-width: none;
   }
+}
+
+.mempelai-ampersand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  align-self: center;
+  margin-top: -20px;
+}
+
+@media (min-width: 800px) {
+  .mempelai-ampersand {
+    margin-top: -80px;
+  }
+}
+
+/* ══════════════════════════════════════
+   ACARA / EVENT CARDS
+══════════════════════════════════════ */
+.acara-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+@media (min-width: 700px) {
+  .acara-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+.acara-card {
+  background: linear-gradient(
+    160deg,
+    rgba(245, 225, 210, 0.15) 0%,
+    rgba(200, 160, 130, 0.12) 100%
+  );
+  border: 1px solid rgba(255, 220, 228, 0.18);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.acara-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+}
+
+
+.acara-card-inner {
+  position: relative;
+  z-index: 1;
+  padding: clamp(36px, 6vw, 56px) clamp(24px, 4vw, 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.acara-title {
+  font-family: var(--font-heading), serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #fff;
+  margin: 0 0 12px 0;
+  text-shadow: 0 2px 8px rgba(80, 31, 48, 0.15);
+}
+
+.acara-day {
+  font-family: var(--font-heading), serif;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.acara-date {
+  font-family: var(--font-heading), serif;
+  font-size: clamp(4.5rem, 10vw, 7rem);
+  font-weight: 300;
+  color: var(--gold);
+  margin: -8px 0 -4px;
+  line-height: 1;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.acara-month {
+  font-family: var(--font-heading), serif;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 8px;
+}
+
+.acara-time {
+  font-family: var(--font-heading), serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 16px;
+  letter-spacing: 0.05em;
+}
+
+.acara-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 8px 0 16px;
+  width: 100%;
+  max-width: 260px;
+}
+
+.acara-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(232, 184, 122, 0.5), transparent);
+}
+
+.acara-icon {
+  font-size: 1.5rem;
+  color: var(--deep);
+  opacity: 0.7;
+}
+
+.acara-location {
+  font-family: var(--font-heading), serif;
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  color: var(--ink-soft);
+  margin: 0 0 20px;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.acara-location strong {
+  color: var(--ink);
+  font-style: italic;
+}
+
+.acara-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--gold), #c69a50);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(200, 150, 80, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.acara-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(200, 150, 80, 0.5);
 }
 
 .hero-grid {
@@ -995,6 +1180,83 @@ textarea {
   animation: spin 3s linear infinite;
 }
 
+/* ══════════════════════════════════════
+   OUR GALLERY (ZIGZAG / MASONRY)
+══════════════════════════════════════ */
+.gallery-zigzag {
+  column-count: 2;
+  column-gap: 14px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.gallery-item-zigzag {
+  break-inside: avoid;
+  margin-bottom: 14px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transform: translateZ(0); /* Fix for Safari border-radius bug */
+}
+
+.gallery-img-bg {
+  width: 100%;
+  background-size: cover;
+  background-position: center 30%; /* Diganti dari 'center' supaya gambar lebih terpusat ke atas (jadi subjek turun) */
+  background-repeat: no-repeat;
+  transition: transform 0.5s ease;
+}
+
+/* Base (Mobile & Tablet) - 2 Columns Zigzag */
+/* Col 1: items 1, 2, 3, 4 | Col 2: items 5, 6, 7, 8 */
+.gallery-item-zigzag:nth-child(1) .gallery-img-bg,
+.gallery-item-zigzag:nth-child(3) .gallery-img-bg,
+.gallery-item-zigzag:nth-child(6) .gallery-img-bg,
+.gallery-item-zigzag:nth-child(8) .gallery-img-bg {
+  height: 280px;
+}
+
+.gallery-item-zigzag:nth-child(2) .gallery-img-bg,
+.gallery-item-zigzag:nth-child(4) .gallery-img-bg,
+.gallery-item-zigzag:nth-child(5) .gallery-img-bg,
+.gallery-item-zigzag:nth-child(7) .gallery-img-bg {
+  height: 180px;
+  background-position: center 15%; /* Kotak kecil fokusnya digeser lebih atas agar kepala tidak terpotong (gambar turun) */
+}
+
+.gallery-item-zigzag:hover .gallery-img-bg {
+  transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+  .gallery-zigzag {
+    column-count: 4; /* 4 columns for desktop (4 top, 4 bottom) */
+    column-gap: 24px;
+    max-width: 1200px;
+  }
+  
+  .gallery-item-zigzag {
+    margin-bottom: 24px;
+  }
+
+  /* Desktop - 4 Columns Zigzag */
+  /* Col1: 1, 2 | Col2: 3, 4 | Col3: 5, 6 | Col4: 7, 8 */
+  .gallery-item-zigzag:nth-child(1) .gallery-img-bg,
+  .gallery-item-zigzag:nth-child(4) .gallery-img-bg,
+  .gallery-item-zigzag:nth-child(5) .gallery-img-bg,
+  .gallery-item-zigzag:nth-child(8) .gallery-img-bg {
+    height: 380px;
+  }
+
+  .gallery-item-zigzag:nth-child(2) .gallery-img-bg,
+  .gallery-item-zigzag:nth-child(3) .gallery-img-bg,
+  .gallery-item-zigzag:nth-child(6) .gallery-img-bg,
+  .gallery-item-zigzag:nth-child(7) .gallery-img-bg {
+    height: 240px;
+    background-position: center 15%; /* Fokus gambar lebih ke atas, subjek turun */
+  }
+}
+
 @media (max-width: 520px) {
   .section {
     padding: 60px 0;
@@ -1024,8 +1286,11 @@ textarea {
     padding: 12px;
   }
 
-  .gallery-grid {
-    grid-template-columns: 1fr;
+  .gallery-zigzag {
+    column-gap: 10px;
+  }
+  .gallery-item-zigzag {
+    margin-bottom: 10px;
   }
 
   .opening-card {
