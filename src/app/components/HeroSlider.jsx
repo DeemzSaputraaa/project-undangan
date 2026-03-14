@@ -138,7 +138,7 @@ export default function HeroSlider() {
 
       <div className="hs-content">
         <p className="hs-label">Wedding Invitation</p>
-        <h1 className="hs-names">Rio Setiawan &amp; Lukmaniati</h1>
+        <h1 className="hs-names">Riyo Setiawan &amp; Lukmaniati</h1>
         <div className="hs-divider">
           <span className="hs-line" />
           <p className="hs-date">27 &bull; 08 &bull; 26</p>

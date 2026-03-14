@@ -6,7 +6,7 @@ export default function Home() {
         <div className="cover-content fade-in">
           <div className="cover-top">
             <p className="cover-script">The Wedding of</p>
-            <h1 className="cover-names">Rio Setiawan  &amp; Lukmaniati</h1>
+            <h1 className="cover-names">Riyo Setiawan  &amp; Lukmaniati</h1>
           </div>
           <div className="cover-bottom">
             {/* <p className="cover-dear">Kepada Yth.</p>

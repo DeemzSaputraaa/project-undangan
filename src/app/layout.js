@@ -20,7 +20,7 @@ const scriptFont = Great_Vibes({
 });
 
 export const metadata = {
-  title: "Undangan Digital | Rio & Lukmaniati",
+  title: "Undangan Digital | Riyo & Lukmaniati",
   description: "Undangan pernikahan digital yang responsif dan mobile-friendly.",
 };
 

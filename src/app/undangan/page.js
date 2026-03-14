@@ -59,10 +59,10 @@ export default function UndanganPage() {
                   boxShadow: "0 14px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,220,228,0.1)" 
                 }}></div>
                 <h3 style={{ fontFamily: "var(--font-script), 'Great Vibes', cursive", fontSize: "clamp(3.5rem, 8vw, 4.5rem)", color: "var(--accent)", margin: "0 0 -10px 0", fontWeight: 400, transform: "rotate(-2deg)" }}>
-                  Rio
+                  Riyo
                 </h3>
                 <h4 style={{ fontFamily: "var(--font-heading), serif", fontSize: "clamp(1.6rem, 4vw, 2.2rem)", color: "var(--ink)", margin: "0 0 24px 0", fontWeight: 500, letterSpacing: "1px" }}>
-                  Rio Setiawan
+                  Riyo Setiawan
                 </h4>
                 <p style={{ color: "var(--ink-soft)", lineHeight: "1.7", margin: 0, fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)" }}>
                   Putra dari<br/>
