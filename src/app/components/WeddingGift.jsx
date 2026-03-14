@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import AnimatedSection from "./AnimatedSection";
 
 export default function WeddingGift() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,47 +19,60 @@ export default function WeddingGift() {
       <div style={{ position: "absolute", inset: 0, backgroundColor: "rgba(253, 248, 245, 0.85)" }}></div>
       
       <div className="container" style={{ position: "relative", zIndex: 2, textAlign: "center", maxWidth: "850px", margin: "0 auto" }}>
-        
-        <div style={{ padding: "clamp(30px, 5vw, 60px)", borderRadius: "24px", border: "2px solid rgba(198, 163, 111, 0.4)", background: "rgba(255, 255, 255, 0.6)", backdropFilter: "blur(10px)", boxShadow: "0 10px 40px rgba(0,0,0,0.05)" }}>
-          <h2 style={{ fontFamily: "var(--font-heading), serif", fontSize: "clamp(1.8rem, 4vw, 2.8rem)", color: "var(--deep)", marginBottom: "20px", letterSpacing: "2px" }}>
-            WEDDING GIFT
-          </h2>
-          <p style={{ color: "var(--deep)", fontSize: "clamp(0.95rem, 1.8vw, 1.15rem)", lineHeight: 1.8, marginBottom: "32px", fontFamily: "var(--font-heading), serif", fontWeight: 500 }}>
-            Doa restu Anda merupakan karunia yang sangat berarti bagi kami, dan jika memberi adalah ungkapan tanda kasih, Anda dapat memberi kado secara cashless.
-          </p>
-          
-          <button 
-            onClick={() => setIsOpen(!isOpen)}
+        <AnimatedSection delay="0.1s">
+          <div style={{ padding: "clamp(30px, 5vw, 60px)", borderRadius: "24px", border: "2px solid rgba(198, 163, 111, 0.4)", background: "rgba(255, 255, 255, 0.6)", backdropFilter: "blur(10px)", boxShadow: "0 10px 40px rgba(0,0,0,0.05)" }}>
+            <h2 style={{ fontFamily: "var(--font-heading), serif", fontSize: "clamp(1.8rem, 4vw, 2.8rem)", color: "var(--deep)", marginBottom: "20px", letterSpacing: "2px" }}>
+              WEDDING GIFT
+            </h2>
+            <p style={{ color: "var(--deep)", fontSize: "clamp(0.95rem, 1.8vw, 1.15rem)", lineHeight: 1.8, marginBottom: "32px", fontFamily: "var(--font-heading), serif", fontWeight: 500 }}>
+              Doa restu Anda merupakan karunia yang sangat berarti bagi kami, dan jika memberi adalah ungkapan tanda kasih, Anda dapat memberi kado secara cashless.
+            </p>
+            
+            <button 
+              onClick={() => setIsOpen(!isOpen)}
+              style={{
+                padding: "14px 32px",
+                background: "var(--deep)",
+                color: "#fff",
+                border: "none",
+                borderRadius: "30px",
+                fontSize: "0.95rem",
+                fontWeight: "600",
+                cursor: "pointer",
+                letterSpacing: "1px",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "10px",
+                boxShadow: "0 6px 20px rgba(198, 163, 111, 0.4)",
+                transition: "all 0.3s ease",
+              }}
+            >
+              {isOpen ? "Tutup" : "➔ Klik Disini"}
+              <span style={{
+                display: "inline-block",
+                transition: "transform 0.4s ease",
+                transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+                fontSize: "0.85rem"
+              }}>▼</span>
+            </button>
+
+          {/* Animated cards container - always in DOM, animated with max-height */}
+          <div
             style={{
-              padding: "14px 32px",
-              background: "#c6a36f",
-              color: "#fff",
-              border: "none",
-              borderRadius: "30px",
-              fontSize: "0.95rem",
-              fontWeight: "600",
-              cursor: "pointer",
-              letterSpacing: "1px",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              boxShadow: "0 6px 20px rgba(198, 163, 111, 0.4)",
-              transition: "all 0.3s ease",
-              transform: isOpen ? "translateY(2px)" : "translateY(0)"
+              overflow: "hidden",
+              maxHeight: isOpen ? "800px" : "0px",
+              opacity: isOpen ? 1 : 0,
+              transform: isOpen ? "translateY(0)" : "translateY(-20px)",
+              transition: "max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease, transform 0.5s ease",
+              marginTop: isOpen ? "40px" : "0px",
             }}
           >
-            {isOpen ? "TUTUP" : "➔ KLIK DISINI"}
-          </button>
-
-          {isOpen && (
             <div style={{
-              marginTop: "40px",
               display: "flex",
               flexDirection: "row",
               flexWrap: "wrap",
               justifyContent: "center",
               gap: "24px",
-              animation: "fadeInUp 0.6s ease forwards"
             }}>
               {/* ATM Card BRI Image Wrapper */}
               <div style={{
@@ -107,7 +121,7 @@ export default function WeddingGift() {
                 </div>
                 
                 {copied && (
-                  <div style={{ position: "absolute", bottom: "56px", right: "16px", background: "#333", color: "#fff", padding: "6px 12px", borderRadius: "6px", fontSize: "0.8rem", animation: "fadeInUp 0.3s ease forwards", zIndex: 4 }}>
+                  <div style={{ position: "absolute", bottom: "56px", right: "16px", background: "#333", color: "#fff", padding: "6px 12px", borderRadius: "6px", fontSize: "0.8rem", zIndex: 4 }}>
                     Berhasil disalin!
                   </div>
                 )}
@@ -147,8 +161,9 @@ export default function WeddingGift() {
                 </div>
               </div>
             </div>
-          )}
-        </div>
+          </div>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );

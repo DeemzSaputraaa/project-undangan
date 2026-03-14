@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import AnimatedSection from "./AnimatedSection";
 
 function timeAgo(dateString) {
   const now = new Date();
@@ -76,15 +77,17 @@ export default function WishesSection() {
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 clamp(16px, 4vw, 32px)" }}>
 
         {/* ── Header (Full Width) ── */}
-        <h2 style={{ fontFamily: "var(--font-heading), serif", fontSize: "clamp(2rem, 5vw, 3rem)", color: "#fff", letterSpacing: "4px", textAlign: "center", marginBottom: "12px" }}>
-          WISHES
-        </h2>
-        <p style={{ textAlign: "center", color: "rgba(255,255,255,0.8)", fontSize: "clamp(0.9rem, 2vw, 1rem)", marginBottom: "40px", fontWeight: 500 }}>
-          Berikan ucapan harapan dan do&apos;a kepada kedua mempelai
-        </p>
+        <AnimatedSection delay="0.1s">
+          <h2 style={{ fontFamily: "var(--font-heading), serif", fontSize: "clamp(2rem, 5vw, 3rem)", color: "#fff", letterSpacing: "4px", textAlign: "center", marginBottom: "12px" }}>
+            WISHES
+          </h2>
+          <p style={{ textAlign: "center", color: "rgba(255,255,255,0.8)", fontSize: "clamp(0.9rem, 2vw, 1rem)", marginBottom: "40px", fontWeight: 500 }}>
+            Berikan ucapan harapan dan do&apos;a kepada kedua mempelai
+          </p>
+        </AnimatedSection>
 
         {/* ── Two-Column Row ── */}
-        <div style={{ display: "flex", gap: "24px", alignItems: "flex-start", flexWrap: "wrap" }}>
+        <AnimatedSection delay="0.2s" style={{ display: "flex", gap: "24px", alignItems: "flex-start", flexWrap: "wrap" }}>
 
           {/* LEFT CARD: Stats + Form */}
           <div style={{ flex: "1 1 280px", minWidth: "260px", ...cardStyle }}>
@@ -147,7 +150,7 @@ export default function WishesSection() {
 
           {/* RIGHT CARD: Wishes List */}
           <div className="hide-scrollbar" style={{ flex: "1 1 280px", minWidth: "260px", maxHeight: "500px", overflowY: "auto", ...cardStyle }}>
-            <h3 style={{ color: "#fff", fontFamily: "var(--font-heading), serif", fontSize: "1.2rem", marginBottom: "20px", letterSpacing: "1px" }}>
+            <h3 style={{ color: "#fff", fontFamily: "var(--font-heading), serif", fontSize: "1.2rem", marginBottom: "20px", letterSpacing: "1px", textAlign: "center" }}>
               Ucapan &amp; Doa
             </h3>
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -165,7 +168,7 @@ export default function WishesSection() {
                     </svg>
                   </div>
                   <div style={{ flex: 1 }}>
-                    <p style={{ margin: "0 0 5px 0", fontSize: "0.92rem", color: "rgba(255,255,255,0.88)", lineHeight: 1.6 }}>
+                    <p style={{ margin: "0 0 5px 0", fontSize: "0.92rem", color: "rgba(255,255,255,0.88)", lineHeight: 1.6, wordBreak: "break-word", overflowWrap: "break-word" }}>
                       {w.message}
                     </p>
                     <div style={{ display: "flex", gap: "10px", alignItems: "center", flexWrap: "wrap" }}>
@@ -174,7 +177,7 @@ export default function WishesSection() {
                         {w.attendance === "hadir" ? "✓ Hadir" : w.attendance === "tidak-hadir" ? "✗ Tidak Hadir" : "? Masih Ragu"}
                       </span>
                     </div>
-                    <p style={{ margin: "4px 0 0 0", fontSize: "0.8rem", color: "rgba(255,255,255,0.55)", fontWeight: 700 }}>
+                    <p style={{ margin: "4px 0 0 0", fontSize: "0.8rem", color: "rgba(255,255,255,0.55)", fontWeight: 700, wordBreak: "break-word", overflowWrap: "break-word" }}>
                       — {w.name}
                     </p>
                   </div>
@@ -182,8 +185,7 @@ export default function WishesSection() {
               ))}
             </div>
           </div>
-
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

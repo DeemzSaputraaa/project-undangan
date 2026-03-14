@@ -1,6 +1,32 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
 export default function ClosingSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       className="section"
       style={{
         background: "url('/images/awal.jpg') center 20% / cover",
@@ -17,7 +43,14 @@ export default function ClosingSection() {
       <div style={{ position: "relative", zIndex: 2, maxWidth: "800px", margin: "0 auto" }}>
         
         {/* Arch Image Container */}
-        <div style={{ position: "relative", margin: "0 auto 40px auto", width: "clamp(200px, 50vw, 260px)" }}>
+        <div style={{ 
+          position: "relative", 
+          margin: "0 auto 40px auto", 
+          width: "clamp(200px, 50vw, 260px)",
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? "translateY(0)" : "translateY(40px)",
+          transition: "all 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s"
+        }}>
           
           {/* Flower overlapping the top of the Arch Image */}
           {/* <img
@@ -59,6 +92,9 @@ export default function ClosingSection() {
             marginBottom: "20px",
             fontWeight: 500,
             padding: "0 20px",
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? "translateY(0)" : "translateY(30px)",
+            transition: "all 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s"
           }}
         >
           Merupakan suatu kehormatan dan kebahagiaan bagi kami 
@@ -77,6 +113,9 @@ export default function ClosingSection() {
             fontWeight: "700",
             letterSpacing: "2px",
             marginTop: "10px",
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? "translateY(0)" : "translateY(20px)",
+            transition: "all 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s"
           }}
         >
           RIO &amp; LUKMANIATI
@@ -85,7 +124,7 @@ export default function ClosingSection() {
 
       {/* Decorative Flowers */}
       <img
-        src="/icon/bunga4.png"
+        src="/icon/bunga4.webp"
         alt="Decorative Flower Left"
         style={{
           position: "absolute",
@@ -94,13 +133,14 @@ export default function ClosingSection() {
           width: "clamp(120px, 30vw, 300px)",
           height: "auto",
           zIndex: 1,
-          opacity: 1,
+          opacity: isVisible ? 1 : 0,
           pointerEvents: "none",
-          transform: "scale(-1, -1)",
+          transform: isVisible ? "translate(0, 0) scale(-1, -1)" : "translate(-60px, 60px) scale(-1, -1)",
+          transition: "all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s"
         }}
       />
       <img
-        src="/icon/bunga4.png"
+        src="/icon/bunga4.webp"
         alt="Decorative Flower Right"
         style={{
           position: "absolute",
@@ -109,9 +149,10 @@ export default function ClosingSection() {
           width: "clamp(120px, 30vw, 300px)",
           height: "auto",
           zIndex: 1,
-          opacity: 1,
+          opacity: isVisible ? 1 : 0,
           pointerEvents: "none",
-          transform: "scaleY(-1)",
+          transform: isVisible ? "translate(0, 0) scaleY(-1)" : "translate(60px, 60px) scaleY(-1)",
+          transition: "all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s"
         }}
       />
     </section>
