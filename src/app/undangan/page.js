@@ -6,6 +6,7 @@ import WeddingGift from "../components/WeddingGift";
 import WishesSection from "../components/WishesSection";
 import ClosingSection from "../components/ClosingSection";
 import AnimatedSection from "../components/AnimatedSection";
+import Countdown from "../components/Countdown";
 
 export default function UndanganPage() {
   return (
@@ -104,6 +105,32 @@ export default function UndanganPage() {
               </div>
             </AnimatedSection>
           </div>
+        </div>
+      </section>
+
+      {/* Save The Date / Countdown Section */}
+      <section className="section save-the-date-section" id="save-the-date" style={{ padding: "clamp(40px, 8vw, 80px) 0", background: "url('/images/awal.jpg') center 35% / cover", position: "relative" }}>
+        {/* Overlay to fade background a bit for readability */}
+        <div style={{ position: "absolute", inset: 0, backgroundColor: "rgba(253, 248, 245, 0.85)" }}></div>
+        
+        <div className="container" style={{ position: "relative", zIndex: 2, textAlign: "center", maxWidth: "850px", margin: "0 auto" }}>
+          <AnimatedSection delay="0.1s">
+            <div style={{ padding: "clamp(10px, 3vw, 20px) 0" }}>
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <p className="pill" style={{ marginBottom: "16px" }}>Save The Date</p>
+              </div>
+              <h2 className="section-title">Hitung Mundur Menuju Hari Bahagia</h2>
+              <p className="section-lead" style={{ margin: "0 auto 40px" }}>
+                Tandai tanggal ini dan jadilah bagian dari momen paling berharga dalam hidup kami.
+              </p>
+              <div className="save-the-date-date">
+                <span>Minggu</span>
+                <span className="save-the-date-bullet">✦</span>
+                <span>16 Agustus 2026</span>
+              </div>
+              <Countdown targetDate="2026-08-16T08:00:00" />
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 

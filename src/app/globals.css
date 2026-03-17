@@ -827,42 +827,138 @@ img {
   font-weight: 600;
 }
 
+/* ══════════════════════════════════════
+   SAVE THE DATE / COUNTDOWN SECTION
+══════════════════════════════════════ */
+.save-the-date-section {
+  position: relative;
+}
+
+/* 
+  OVERRIDE WARNA UNTUK BACKGROUND TERANG 
+  (Karena bagian ini memakai background image terang, font disesuaikan ke gelap/burgundy) 
+*/
+.save-the-date-section .section-title,
+.save-the-date-section .section-lead {
+  color: var(--deep);
+}
+
+.save-the-date-section .pill {
+  color: var(--deep);
+  border-color: rgba(80, 31, 48, 0.3);
+  background: rgba(80, 31, 48, 0.05);
+}
+
+.save-the-date-section .save-the-date-date {
+  color: var(--deep);
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(80, 31, 48, 0.2);
+}
+
+.save-the-date-section .save-the-date-bullet {
+  color: var(--deep);
+  opacity: 0.5;
+}
+
+.save-the-date-section .countdown-card {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(80, 31, 48, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.save-the-date-section .countdown-card::before {
+  background: linear-gradient(90deg, transparent, rgba(80, 31, 48, 0.25), transparent);
+}
+
+.save-the-date-section .countdown-card h4 {
+  color: var(--deep);
+  text-shadow: none;
+}
+
+.save-the-date-section .countdown-card p {
+  color: var(--deep);
+  opacity: 0.8;
+}
+
+.save-the-date-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-heading), serif;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 36px;
+  padding: 10px 28px;
+  border: 1px solid rgba(232, 184, 122, 0.35);
+  border-radius: 999px;
+  background: rgba(232, 184, 122, 0.07);
+}
+
+.save-the-date-bullet {
+  color: var(--gold);
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
 .countdown {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 14px;
-  margin-top: 18px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 3vw, 24px);
+  margin-top: 8px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .countdown-card {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 220, 228, 0.18);
-  border-radius: var(--radius-md);
-  padding: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(232, 184, 122, 0.2);
+  border-radius: var(--radius-lg);
+  padding: clamp(18px, 4vw, 28px) clamp(10px, 3vw, 20px);
   text-align: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 220, 228, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.countdown-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(232, 184, 122, 0.6), transparent);
 }
 
 .countdown-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 36px rgba(44, 44, 44, 0.14);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.18);
 }
 
 .countdown-card h4 {
-  font-size: 1.8rem;
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
   margin: 0;
   font-family: var(--font-heading), serif;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  text-shadow: 0 2px 12px rgba(200, 150, 60, 0.25);
 }
 
 .countdown-card p {
-  margin: 6px 0 0;
-  font-size: 0.85rem;
+  margin: 8px 0 0;
+  font-size: clamp(0.7rem, 1.5vw, 0.8rem);
   color: var(--ink-soft);
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
+  font-weight: 600;
 }
 
 .split {
@@ -1303,6 +1399,225 @@ textarea {
   }
 }
 
+/* ══════════════════════════════════════
+   BUTTERFLY — 1 kupu-kupu dengan kepak sayap
+══════════════════════════════════════ */
+
+/* Jalur terbang 8-dimensi: WRAPPER menangani posisi (X,Y), rotasi orientasi, dan opacity */
+@keyframes bf-fly {
+  /* Muncul dari kiri atas, menghadap Serong Kanan Bawah */
+  0%   { transform: translate(-10vw, 30vh) rotate(120deg); opacity: 0; }
+  2%   { opacity: 1; }
+  
+  /* Menukik ke tengah bawah */
+  10%  { transform: translate(20vw, 50vh) rotate(130deg); }
+  20%  { transform: translate(50vw, 80vh) rotate(110deg); }
+  
+  /* Berbelok ke kiri perlahan (menghadap Serong Kanan Atas) */
+  25%  { transform: translate(70vw, 80vh) rotate(70deg); }
+  30%  { transform: translate(85vw, 60vh) rotate(30deg); }
+  
+  /* Memuncak (menghadap Atas tegak lurus) */
+  40%  { transform: translate(90vw, 20vh) rotate(0deg); }
+  
+  /* Berbelok tajam ke kiri (menghadap Serong Kiri Atas -> Kiri) */
+  45%  { transform: translate(80vw, 5vh)  rotate(-50deg); }
+  50%  { transform: translate(50vw, 10vh) rotate(-90deg); }
+  
+  /* Menukik turun kembali (menghadap Serong Kiri Bawah) */
+  60%  { transform: translate(10vw, 20vh) rotate(-110deg); }
+  65%  { transform: translate(-5vw, 40vh) rotate(-150deg); }
+  
+  /* Tajam ke bawah lalu berputar kanan (menghadap Bawah) */
+  70%  { transform: translate(0vw,  70vh) rotate(-180deg); }
+  75%  { transform: translate(20vw, 90vh) rotate(-220deg); }
+  
+  /* Menyapu bawah menuju kanan (menghadap Kanan tegak lurus) */
+  80%  { transform: translate(50vw, 90vh) rotate(-260deg); }
+  
+  /* Terbang serong Kanan Atas keluar layar (melibatkan sudut total -360) */
+  90%  { transform: translate(85vw, 70vh) rotate(-300deg); }
+  95%  { transform: translate(110vw,40vh) rotate(-280deg); opacity: 1; }
+  98%  { opacity: 0; }
+  
+  /* Reset tidak terlihat */
+  100% { transform: translate(120vw,40vh) rotate(-280deg); opacity: 0; }
+}
+
+/* Kepak sayap: IMG menangani flap → scaleX 1 ↔ 0 ↔ 1
+   Durasi 0.45s = ~2–3 flap per detik */
+@keyframes bf-wings {
+  0%   { transform: scaleX(1)    scaleY(1.02); }
+  20%  { transform: scaleX(0.55) scaleY(0.96); }
+  40%  { transform: scaleX(0.08) scaleY(0.90); }
+  60%  { transform: scaleX(0.55) scaleY(0.96); }
+  80%  { transform: scaleX(1)    scaleY(1.02); }
+  100% { transform: scaleX(1)    scaleY(1.02); }
+}
+
+/* WRAPPER — lintasan terbang */
+.hs-butterfly-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  pointer-events: none;
+  animation: bf-fly 26s linear infinite;
+  animation-fill-mode: both;
+  will-change: transform, opacity;
+}
+
+/* IMG — kepak sayap */
+.hs-butterfly-wings {
+  display: block;
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.3));
+  animation: bf-wings 0.42s ease-in-out infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+
+/* ══════════════════════════════════════
+   KUPU-KUPU 2 (Kecil) — Terbang Bebas & Jarang Hinggap
+══════════════════════════════════════ */
+
+/* Jalur Terbang untuk Kupu-Kupu 2 (Siklus 45 detik) */
+/* Kecepatan lebih pelan, pergerakan lembut elegan setara kupu-kupu besar */
+/* Orientasi berdasarkan asumsi: 0deg = menghadap atas, 90deg = menghadap kanan */
+@keyframes bf-fly-2 {
+  /* Berawal dari Kanan Atas, di luar layar */
+  0%   { transform: translate(120vw, 10vh) rotate(-140deg); opacity: 0; }
+  2%   { opacity: 1; }
+  
+  /* Meluncur perlahan dan elegan ke arah Kiri Bawah */
+  10%  { transform: translate(70vw, 25vh) rotate(-130deg); }
+  
+  /* Melengkung membelok ke kiri (menikung) */
+  20%  { transform: translate(35vw, 30vh) rotate(-100deg); }
+  
+  /* Menukik perlahan memutar ke bawah menuju area tengah */
+  30%  { transform: translate(25vw, 60vh) rotate(-160deg); }
+  
+  /* Bermain memutar arah ke Atas Kanan (menjelang teks) */
+  35%  { transform: translate(45vw, 65vh) rotate(110deg); }
+  
+  /* Mulai mendarat halus dari arah bawah diagonal ke tulisan "ati" (~66vw, 42vh) */
+  40%  { transform: translate(66vw, 42vh) rotate(35deg); }
+  41%  { transform: translate(66vw, 42vh) rotate(15deg); } /* Selesai landing, posisinya tegak pelan */
+  
+  /* HINGGAP di "ati" (selama ~6 detik, 41% - 55%) 
+     Bergeser pelan / bernapas agar terasa hidup */
+  45%  { transform: translate(66.2vw, 42.1vh) rotate(12deg); }
+  50%  { transform: translate(65.8vw, 41.9vh) rotate(18deg); }
+  55%  { transform: translate(66vw, 42vh)   rotate(15deg); }
+  
+  /* Bersiap lepas landas perlahan */
+  56%  { transform: translate(65vw, 40vh) rotate(-45deg); } 
+  
+  /* Terbang perlahan menanjak ke Atas-Kiri */
+  65%  { transform: translate(40vw, 15vh) rotate(-55deg); }
+  
+  /* Keluar layar sangat mulus di pojok Kiri Atas */
+  75%  { transform: translate(-10vw, -10vh) rotate(-45deg); opacity: 1; }
+  77%  { opacity: 0; }
+  
+  /* Siklus hilang (istirahat di luar layar) sebelum mengulangi atraksi dari Kanan Atas */
+  100% { transform: translate(-10vw, -10vh) rotate(-45deg); opacity: 0; }
+}
+
+/* Sinkronisasi Kepak Sayap dengan waktu Terbang dan Hinggap (dalam siklus 45s) */
+/* Karena 45s, 1% = 0.45 detik. Ini sama persis dengan ritme mengepak Kupu-Kupu 1 Besar! */
+@keyframes bf-wings-landing {
+  /* FASE TERBANG MASUK & LIAR (0 - 41%) 
+     Animasi sayap melambat, 1 kepak lambay per 1% siklus = 0.45s 
+     (Menyerupai kupu-kupu besar) */
+  0%, 1%, 2%, 3%, 4%, 5%, 6%, 7%, 8%, 9%, 10%, 11%, 12%, 13%, 14%, 15%, 16%, 17%, 18%, 19%, 20%, 
+  21%, 22%, 23%, 24%, 25%, 26%, 27%, 28%, 29%, 30%, 31%, 32%, 33%, 34%, 35%, 36%, 37%, 38%, 39%, 40%, 41% 
+  { transform: scaleX(1) scaleY(1.02); }
+  
+  0.5%, 1.5%, 2.5%, 3.5%, 4.5%, 5.5%, 6.5%, 7.5%, 8.5%, 9.5%, 10.5%, 11.5%, 12.5%, 13.5%, 14.5%, 15.5%, 16.5%, 17.5%, 18.5%, 19.5%, 
+  20.5%, 21.5%, 22.5%, 23.5%, 24.5%, 25.5%, 26.5%, 27.5%, 28.5%, 29.5%, 30.5%, 31.5%, 32.5%, 33.5%, 34.5%, 35.5%, 36.5%, 37.5%, 38.5%, 39.5%, 40.5% 
+  { transform: scaleX(0.1) scaleY(0.90); }
+
+  /* FASE HINGGAP DI TEKS "ati" (41% - 55% = ~6.3 detik) 
+     Kupu-kupu menutup sayap saat mendarat, lalu terdiam santai */
+  41.5% { transform: scaleX(0.1) scaleY(0.90); } /* Menutup penuh saat mendarat */
+  44% { transform: scaleX(0.1) scaleY(0.90); }
+  46% { transform: scaleX(0.85) scaleY(1.0); } /* Bernafas, buka sayap pelan */
+  48% { transform: scaleX(0.85) scaleY(1.0); } 
+  49% { transform: scaleX(0.1) scaleY(0.90); } /* Tutup kembali perlahan */
+  
+  52% { transform: scaleX(0.1) scaleY(0.90); }
+  53% { transform: scaleX(0.4) scaleY(0.95); } /* Getar sayap setengah ragu-ragu */
+  54% { transform: scaleX(0.1) scaleY(0.90); }
+
+  /* FASE TERBANG PERGI (55% - 100%) 
+     Kembali terbang kepakan lambay keluar layar */
+  55%, 56%, 57%, 58%, 59%, 60%, 61%, 62%, 63%, 64%, 65%, 66%, 67%, 68%, 69%, 70%, 71%, 72%, 73%, 74%, 75%, 76%, 77%, 78%, 79%, 80%, 
+  81%, 82%, 83%, 84%, 85%, 86%, 87%, 88%, 89%, 90%, 91%, 92%, 93%, 94%, 95%, 96%, 97%, 98%, 99%, 100% 
+  { transform: scaleX(1) scaleY(1.02); }
+  
+  55.5%, 56.5%, 57.5%, 58.5%, 59.5%, 60.5%, 61.5%, 62.5%, 63.5%, 64.5%, 65.5%, 66.5%, 67.5%, 68.5%, 69.5%, 70.5%, 71.5%, 72.5%, 73.5%, 74.5%, 75.5%, 76.5%, 77.5%, 78.5%, 79.5%, 80.5%, 
+  81.5%, 82.5%, 83.5%, 84.5%, 85.5%, 86.5%, 87.5%, 88.5%, 89.5%, 90.5%, 91.5%, 92.5%, 93.5%, 94.5%, 95.5%, 96.5%, 97.5%, 98.5%, 99.5% 
+  { transform: scaleX(0.1) scaleY(0.90); }
+}
+
+/* WRAPPER — lintasan terbang Kupu-kupu 2 */
+.hs-butterfly-wrap-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  pointer-events: none;
+  /* Durasi diperpanjang mjd 45 detik untuk memperlambat laju (setara kupu 1) */
+  animation: bf-fly-2 45s linear infinite;
+  animation-delay: 2s; /* Muncul telat di awal */
+  animation-fill-mode: both;
+  will-change: transform, opacity;
+}
+
+/* IMG — Kupu-kupu 2 mengepak sinkron dengan lintasan (siklus 45s) */
+.hs-butterfly-wings-2 {
+  display: block;
+  width: 40px; 
+  height: 40px; 
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+  /* Sinkron mendarat dgn durasi 45 detik wrapper! */
+  animation: bf-wings-landing 45s linear infinite; 
+  animation-delay: 2s; 
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE SCALING UNTUK KUPU-KUPU
+══════════════════════════════════════ */
+/* iPad & Tablet: Perkecil sedikit */
+@media screen and (max-width: 1024px) {
+  .hs-butterfly-wings {
+    width: 45px;
+    height: 45px;
+  }
+  .hs-butterfly-wings-2 {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Mobile Devices: Perkecil maksimal agar terlihat seukuran kupu-kupu nyata di HP */
+@media screen and (max-width: 768px) {
+  .hs-butterfly-wings {
+    width: 32px;
+    height: 32px;
+  }
+  .hs-butterfly-wings-2 {
+    width: 22px;
+    height: 22px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
@@ -1310,3 +1625,4 @@ textarea {
     scroll-behavior: auto !important;
   }
 }
+

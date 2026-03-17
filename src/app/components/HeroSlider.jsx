@@ -1,18 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef, useMemo } from "react";
-
-const getRemainingTime = (target) => {
-  const now = new Date().getTime();
-  const distance = Math.max(target - now, 0);
-
-  return [
-    { label: "Hari", value: Math.floor(distance / (1000 * 60 * 60 * 24)) },
-    { label: "Jam", value: Math.floor((distance / (1000 * 60 * 60)) % 24) },
-    { label: "Menit", value: Math.floor((distance / (1000 * 60)) % 60) },
-    { label: "Detik", value: Math.floor((distance / 1000) % 60) },
-  ];
-};
+import { useState, useEffect, useCallback, useRef } from "react";
 
 const slides = [
   { src: "/images/slide1.jpg", alt: "Foto mempelai 1" },
@@ -27,18 +15,6 @@ export default function HeroSlider() {
   const [sliding, setSliding] = useState(false);
   const timeoutRef = useRef(null);
   const rafRef = useRef(null);
-
-  // Countdown logic
-  const targetDate = "2026-08-16T08:00:00";
-  const target = useMemo(() => new Date(targetDate).getTime(), [targetDate]);
-  const [timeLeft, setTimeLeft] = useState(() => getRemainingTime(target));
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(getRemainingTime(target));
-    }, 1000);
-    return () => clearInterval(timer);
-  }, [target]);
 
   const goTo = useCallback(
     (index) => {
@@ -136,6 +112,25 @@ export default function HeroSlider() {
 
       <div className="hs-overlay" />
 
+      {/* 2 Kupu-kupu terbang dengan kepak sayap dan jalur berbeda */}
+      {/* Kupu-kupu 1 (Utama - Besar) */}
+      <div className="hs-butterfly-wrap" aria-hidden="true">
+        <img
+          src="/kupu-kupu.svg"
+          alt=""
+          className="hs-butterfly-wings"
+        />
+      </div>
+
+      {/* Kupu-kupu 2 (Kedua - Kecil) */}
+      <div className="hs-butterfly-wrap-2" aria-hidden="true">
+        <img
+          src="/kupu-kupu.svg"
+          alt=""
+          className="hs-butterfly-wings-2"
+        />
+      </div>
+
       <div className="hs-content">
         <p className="hs-label">Wedding Invitation</p>
         <h1 className="hs-names">Riyo Setiawan &amp; Lukmaniati</h1>
@@ -144,15 +139,6 @@ export default function HeroSlider() {
           <p className="hs-date">27 &bull; 08 &bull; 26</p>
           <span className="hs-line" />
         </div>
-      </div>
-
-      <div className="hs-countdown-vertical">
-        {timeLeft.map((item) => (
-          <div key={item.label} className="hs-countdown-item">
-            <span className="hs-cd-val">{item.value.toString().padStart(2, "0")}</span>
-            <span className="hs-cd-lbl">{item.label}</span>
-          </div>
-        ))}
       </div>
 
     </section>
