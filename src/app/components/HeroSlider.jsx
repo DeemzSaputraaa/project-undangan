@@ -37,7 +37,7 @@ export default function HeroSlider() {
         setPrev(null);
       }, 2200);
     },
-    [current, sliding]
+    [current, sliding],
   );
 
   const next = useCallback(() => {
@@ -115,32 +115,23 @@ export default function HeroSlider() {
       {/* 2 Kupu-kupu terbang dengan kepak sayap dan jalur berbeda */}
       {/* Kupu-kupu 1 (Utama - Besar) */}
       <div className="hs-butterfly-wrap" aria-hidden="true">
-        <img
-          src="/kupu-kupu.svg"
-          alt=""
-          className="hs-butterfly-wings"
-        />
+        <img src="/kupu-kupu.svg" alt="" className="hs-butterfly-wings" />
       </div>
 
       {/* Kupu-kupu 2 (Kedua - Kecil) */}
       <div className="hs-butterfly-wrap-2" aria-hidden="true">
-        <img
-          src="/kupu-kupu.svg"
-          alt=""
-          className="hs-butterfly-wings-2"
-        />
+        <img src="/kupu-kupu.svg" alt="" className="hs-butterfly-wings-2" />
       </div>
 
       <div className="hs-content">
         <p className="hs-label">Wedding Invitation</p>
-        <h1 className="hs-names">Riyo Setiawan &amp; Lukmaniati</h1>
+        <h1 className="hs-names">Riyo Setiawan &amp; Lukma</h1>
         <div className="hs-divider">
           <span className="hs-line" />
-          <p className="hs-date">27 &bull; 08 &bull; 26</p>
+          <p className="hs-date">09 &bull; 04 &bull; 26</p>
           <span className="hs-line" />
         </div>
       </div>
-
     </section>
   );
 }

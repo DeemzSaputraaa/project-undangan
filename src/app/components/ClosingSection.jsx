@@ -14,7 +14,7 @@ export default function ClosingSection() {
           observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     if (sectionRef.current) {
@@ -37,21 +37,33 @@ export default function ClosingSection() {
       }}
     >
       {/* Overlay to create the soft krem background over the image like WeddingGift */}
-      <div style={{ position: "absolute", inset: 0, backgroundColor: "rgba(253, 248, 245, 0.85)" }}></div>
-      
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundColor: "rgba(253, 248, 245, 0.85)",
+        }}
+      ></div>
 
-      <div style={{ position: "relative", zIndex: 2, maxWidth: "800px", margin: "0 auto" }}>
-        
+      <div
+        style={{
+          position: "relative",
+          zIndex: 2,
+          maxWidth: "800px",
+          margin: "0 auto",
+        }}
+      >
         {/* Arch Image Container */}
-        <div style={{ 
-          position: "relative", 
-          margin: "0 auto 40px auto", 
-          width: "clamp(200px, 50vw, 260px)",
-          opacity: isVisible ? 1 : 0,
-          transform: isVisible ? "translateY(0)" : "translateY(40px)",
-          transition: "all 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s"
-        }}>
-          
+        <div
+          style={{
+            position: "relative",
+            margin: "0 auto 40px auto",
+            width: "clamp(200px, 50vw, 260px)",
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? "translateY(0)" : "translateY(40px)",
+            transition: "all 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s",
+          }}
+        >
           {/* Flower overlapping the top of the Arch Image */}
           {/* <img
             src="/icon/bunga5.png"
@@ -72,14 +84,13 @@ export default function ClosingSection() {
             style={{
               width: "100%",
               aspectRatio: "3 / 4",
-              background: "url('/images/gallery1.jpg') center/cover",
+              background: "url('/images/berdua.jpeg') center/cover",
               borderTopLeftRadius: "150px",
               borderTopRightRadius: "150px",
               border: "6px solid var(--deep)",
               boxShadow: "0 15px 40px rgba(0,0,0,0.15)",
             }}
           ></div>
-
         </div>
 
         {/* Text */}
@@ -94,13 +105,13 @@ export default function ClosingSection() {
             padding: "0 20px",
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? "translateY(0)" : "translateY(30px)",
-            transition: "all 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s"
+            transition: "all 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s",
           }}
         >
-          Merupakan suatu kehormatan dan kebahagiaan bagi kami 
-          apabila Anda berkenan hadir dan memberikan doa restunya 
-          untuk pernikahan kami.
-          <br /><br />
+          Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Anda
+          berkenan hadir dan memberikan doa restunya untuk pernikahan kami.
+          <br />
+          <br />
           Atas doa &amp; restunya, kami ucapkan terima kasih.
         </p>
 
@@ -115,10 +126,10 @@ export default function ClosingSection() {
             marginTop: "10px",
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? "translateY(0)" : "translateY(20px)",
-            transition: "all 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s"
+            transition: "all 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s",
           }}
         >
-          RIYO &amp; LUKMANIATI
+          RIYO &amp; LUKMA
         </h2>
       </div>
 
@@ -135,8 +146,10 @@ export default function ClosingSection() {
           zIndex: 1,
           opacity: isVisible ? 1 : 0,
           pointerEvents: "none",
-          transform: isVisible ? "translate(0, 0) scale(-1, -1)" : "translate(-60px, 60px) scale(-1, -1)",
-          transition: "all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s"
+          transform: isVisible
+            ? "translate(0, 0) scale(-1, -1)"
+            : "translate(-60px, 60px) scale(-1, -1)",
+          transition: "all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s",
         }}
       />
       <img
@@ -151,8 +164,10 @@ export default function ClosingSection() {
           zIndex: 1,
           opacity: isVisible ? 1 : 0,
           pointerEvents: "none",
-          transform: isVisible ? "translate(0, 0) scaleY(-1)" : "translate(60px, 60px) scaleY(-1)",
-          transition: "all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s"
+          transform: isVisible
+            ? "translate(0, 0) scaleY(-1)"
+            : "translate(60px, 60px) scaleY(-1)",
+          transition: "all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s",
         }}
       />
     </section>

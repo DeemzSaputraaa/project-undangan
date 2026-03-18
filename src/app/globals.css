@@ -1,19 +1,19 @@
 :root {
-  --ink: #FFE8EE;          /* putih rose — teks utama di bg gelap */
-  --ink-soft: #E5B8C5;     /* rose lebih cerah — teks sekunder agar lebih terbaca */
-  --paper: #F5D6DE;        /* rose terang */
-  --cream: #F0C8D0;        /* krem rose */
-  --gold: #E8B87A;         /* emas hangat — aksen dekoratif */
-  --sage: #D4A0B0;         /* rose mauve — eyebrow label */
-  --blush: rgba(255,220,228,0.18); /* blush glass */
-  --deep: #501f30;         /* burgundy utama — tombol utama */
-  --accent: #FFAABB;       /* rose cerah — highlight di bg gelap */
+  --ink: #ffe8ee; /* putih rose — teks utama di bg gelap */
+  --ink-soft: #e5b8c5; /* rose lebih cerah — teks sekunder agar lebih terbaca */
+  --paper: #f5d6de; /* rose terang */
+  --cream: #f0c8d0; /* krem rose */
+  --gold: #e8b87a; /* emas hangat — aksen dekoratif */
+  --sage: #d4a0b0; /* rose mauve — eyebrow label */
+  --blush: rgba(255, 220, 228, 0.18); /* blush glass */
+  --deep: #501f30; /* burgundy utama — tombol utama */
+  --accent: #ffaabb; /* rose cerah — highlight di bg gelap */
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
   --shadow-card: 0 12px 40px rgba(0, 0, 0, 0.35);
   --radius-xl: 28px;
   --radius-lg: 20px;
   --radius-md: 14px;
-  --wine-bg: #501f30;      /* background utama — burgundy solid */
+  --wine-bg: #501f30; /* background utama — burgundy solid */
   --glass: rgba(255, 255, 255, 0.08);
   --glass-border: rgba(255, 220, 228, 0.2);
 }
@@ -101,7 +101,7 @@ img {
     rgba(90, 15, 30, 0.55) 0%,
     rgba(107, 18, 40, 0.28) 35%,
     rgba(107, 18, 40, 0.28) 60%,
-    rgba(60, 8, 20, 0.70) 100%
+    rgba(60, 8, 20, 0.7) 100%
   );
   z-index: 0;
   pointer-events: none;
@@ -160,18 +160,20 @@ img {
   right: 0;
   bottom: -2px;
   height: 22px;
-  background: radial-gradient(
-      circle at 10% 40%,
-      #fff 0 16px,
-      transparent 18px
-    ),
+  background:
+    radial-gradient(circle at 10% 40%, #fff 0 16px, transparent 18px),
     radial-gradient(circle at 30% 60%, #fff 0 18px, transparent 20px),
     radial-gradient(circle at 55% 50%, #fff 0 16px, transparent 18px),
     radial-gradient(circle at 75% 60%, #fff 0 18px, transparent 20px),
     radial-gradient(circle at 92% 40%, #fff 0 16px, transparent 18px);
   background-repeat: no-repeat;
   background-size: 20% 100%;
-  background-position: 0 0, 20% 0, 45% 0, 70% 0, 92% 0;
+  background-position:
+    0 0,
+    20% 0,
+    45% 0,
+    70% 0,
+    92% 0;
   filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, 0.2));
   pointer-events: none;
 }
@@ -324,9 +326,9 @@ img {
   z-index: 3;
   background: linear-gradient(
     180deg,
-    rgba(90, 15, 30, 0.50) 0%,
+    rgba(90, 15, 30, 0.5) 0%,
     rgba(107, 18, 40, 0.25) 40%,
-    rgba(107, 18, 40, 0.30) 60%,
+    rgba(107, 18, 40, 0.3) 60%,
     rgba(50, 8, 18, 0.72) 100%
   );
   pointer-events: none;
@@ -407,7 +409,9 @@ img {
   background: rgba(255, 255, 255, 0.45);
   cursor: pointer;
   padding: 0;
-  transition: width 0.35s ease, background 0.35s ease;
+  transition:
+    width 0.35s ease,
+    background 0.35s ease;
 }
 
 .hs-dot--active {
@@ -493,7 +497,6 @@ img {
   color: rgba(255, 255, 255, 0.85);
 }
 
-
 .section-title {
   font-family: var(--font-heading), serif;
   font-size: clamp(2rem, 3vw, 2.8rem);
@@ -556,7 +559,7 @@ img {
     flex-direction: row !important;
     align-items: flex-start !important;
   }
-  
+
   .mempelai-grid > .card,
   .mempelai-wrapper {
     flex: 1 1 300px;
@@ -590,7 +593,7 @@ img {
 
 @media (min-width: 700px) {
   .acara-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.7fr 1.4fr;
     gap: 32px;
   }
 }
@@ -605,14 +608,15 @@ img {
   border-radius: var(--radius-xl);
   overflow: hidden;
   position: relative;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .acara-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
 }
-
 
 .acara-card-inner {
   position: relative;
@@ -686,7 +690,12 @@ img {
 .acara-divider-line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(232, 184, 122, 0.5), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(232, 184, 122, 0.5),
+    transparent
+  );
 }
 
 .acara-icon {
@@ -723,7 +732,9 @@ img {
   text-transform: uppercase;
   text-decoration: none;
   box-shadow: 0 6px 20px rgba(200, 150, 80, 0.35);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .acara-btn:hover {
@@ -772,7 +783,10 @@ img {
   border: none;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
   font-family: inherit;
   position: relative;
   z-index: 2;
@@ -867,7 +881,12 @@ img {
 }
 
 .save-the-date-section .countdown-card::before {
-  background: linear-gradient(90deg, transparent, rgba(80, 31, 48, 0.25), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(80, 31, 48, 0.25),
+    transparent
+  );
 }
 
 .save-the-date-section .countdown-card h4 {
@@ -921,8 +940,12 @@ img {
   border-radius: var(--radius-lg);
   padding: clamp(18px, 4vw, 28px) clamp(10px, 3vw, 20px);
   text-align: center;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 220, 228, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 220, 228, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
 }
@@ -934,7 +957,12 @@ img {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(232, 184, 122, 0.6), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(232, 184, 122, 0.6),
+    transparent
+  );
 }
 
 .countdown-card:hover {
@@ -976,7 +1004,9 @@ img {
   padding: 26px;
   box-shadow: var(--shadow);
   border: 1px solid rgba(255, 220, 228, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .card:hover {
@@ -996,7 +1026,9 @@ img {
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.04);
   border-left: 3px solid rgba(255, 170, 187, 0.5);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .timeline-item:hover {
@@ -1022,7 +1054,11 @@ img {
 }
 
 .gallery-item {
-  background: linear-gradient(140deg, rgba(155, 32, 64, 0.12), rgba(232, 196, 204, 0.3));
+  background: linear-gradient(
+    140deg,
+    rgba(155, 32, 64, 0.12),
+    rgba(232, 196, 204, 0.3)
+  );
   border-radius: 18px;
   aspect-ratio: 4 / 5;
   display: grid;
@@ -1031,7 +1067,9 @@ img {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
   position: relative;
   overflow: hidden;
 }
@@ -1040,7 +1078,12 @@ img {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.45) 45%, transparent 80%);
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 45%,
+    transparent 80%
+  );
   transform: translateX(-120%);
   transition: transform 0.6s ease;
   pointer-events: none;
@@ -1076,7 +1119,9 @@ textarea {
   font-family: inherit;
   background: rgba(255, 255, 255, 0.04);
   color: #fff;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 input:focus,
@@ -1242,7 +1287,10 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: inset 0 0 0 2px #2a2a2a, inset 0 0 0 8px #181818, inset 0 0 0 11px #333;
+  box-shadow:
+    inset 0 0 0 2px #2a2a2a,
+    inset 0 0 0 8px #181818,
+    inset 0 0 0 11px #333;
 }
 
 .vinyl-inner {
@@ -1268,8 +1316,12 @@ textarea {
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .music-btn.playing .vinyl {
@@ -1330,7 +1382,7 @@ textarea {
     column-gap: 24px;
     max-width: 1200px;
   }
-  
+
   .gallery-item-zigzag {
     margin-bottom: 24px;
   }
@@ -1406,53 +1458,104 @@ textarea {
 /* Jalur terbang 8-dimensi: WRAPPER menangani posisi (X,Y), rotasi orientasi, dan opacity */
 @keyframes bf-fly {
   /* Muncul dari kiri atas, menghadap Serong Kanan Bawah */
-  0%   { transform: translate(-10vw, 30vh) rotate(120deg); opacity: 0; }
-  2%   { opacity: 1; }
-  
+  0% {
+    transform: translate(-10vw, 30vh) rotate(120deg);
+    opacity: 0;
+  }
+  2% {
+    opacity: 1;
+  }
+
   /* Menukik ke tengah bawah */
-  10%  { transform: translate(20vw, 50vh) rotate(130deg); }
-  20%  { transform: translate(50vw, 80vh) rotate(110deg); }
-  
+  10% {
+    transform: translate(20vw, 50vh) rotate(130deg);
+  }
+  20% {
+    transform: translate(50vw, 80vh) rotate(110deg);
+  }
+
   /* Berbelok ke kiri perlahan (menghadap Serong Kanan Atas) */
-  25%  { transform: translate(70vw, 80vh) rotate(70deg); }
-  30%  { transform: translate(85vw, 60vh) rotate(30deg); }
-  
+  25% {
+    transform: translate(70vw, 80vh) rotate(70deg);
+  }
+  30% {
+    transform: translate(85vw, 60vh) rotate(30deg);
+  }
+
   /* Memuncak (menghadap Atas tegak lurus) */
-  40%  { transform: translate(90vw, 20vh) rotate(0deg); }
-  
+  40% {
+    transform: translate(90vw, 20vh) rotate(0deg);
+  }
+
   /* Berbelok tajam ke kiri (menghadap Serong Kiri Atas -> Kiri) */
-  45%  { transform: translate(80vw, 5vh)  rotate(-50deg); }
-  50%  { transform: translate(50vw, 10vh) rotate(-90deg); }
-  
+  45% {
+    transform: translate(80vw, 5vh) rotate(-50deg);
+  }
+  50% {
+    transform: translate(50vw, 10vh) rotate(-90deg);
+  }
+
   /* Menukik turun kembali (menghadap Serong Kiri Bawah) */
-  60%  { transform: translate(10vw, 20vh) rotate(-110deg); }
-  65%  { transform: translate(-5vw, 40vh) rotate(-150deg); }
-  
+  60% {
+    transform: translate(10vw, 20vh) rotate(-110deg);
+  }
+  65% {
+    transform: translate(-5vw, 40vh) rotate(-150deg);
+  }
+
   /* Tajam ke bawah lalu berputar kanan (menghadap Bawah) */
-  70%  { transform: translate(0vw,  70vh) rotate(-180deg); }
-  75%  { transform: translate(20vw, 90vh) rotate(-220deg); }
-  
+  70% {
+    transform: translate(0vw, 70vh) rotate(-180deg);
+  }
+  75% {
+    transform: translate(20vw, 90vh) rotate(-220deg);
+  }
+
   /* Menyapu bawah menuju kanan (menghadap Kanan tegak lurus) */
-  80%  { transform: translate(50vw, 90vh) rotate(-260deg); }
-  
+  80% {
+    transform: translate(50vw, 90vh) rotate(-260deg);
+  }
+
   /* Terbang serong Kanan Atas keluar layar (melibatkan sudut total -360) */
-  90%  { transform: translate(85vw, 70vh) rotate(-300deg); }
-  95%  { transform: translate(110vw,40vh) rotate(-280deg); opacity: 1; }
-  98%  { opacity: 0; }
-  
+  90% {
+    transform: translate(85vw, 70vh) rotate(-300deg);
+  }
+  95% {
+    transform: translate(110vw, 40vh) rotate(-280deg);
+    opacity: 1;
+  }
+  98% {
+    opacity: 0;
+  }
+
   /* Reset tidak terlihat */
-  100% { transform: translate(120vw,40vh) rotate(-280deg); opacity: 0; }
+  100% {
+    transform: translate(120vw, 40vh) rotate(-280deg);
+    opacity: 0;
+  }
 }
 
 /* Kepak sayap: IMG menangani flap → scaleX 1 ↔ 0 ↔ 1
    Durasi 0.45s = ~2–3 flap per detik */
 @keyframes bf-wings {
-  0%   { transform: scaleX(1)    scaleY(1.02); }
-  20%  { transform: scaleX(0.55) scaleY(0.96); }
-  40%  { transform: scaleX(0.08) scaleY(0.90); }
-  60%  { transform: scaleX(0.55) scaleY(0.96); }
-  80%  { transform: scaleX(1)    scaleY(1.02); }
-  100% { transform: scaleX(1)    scaleY(1.02); }
+  0% {
+    transform: scaleX(1) scaleY(1.02);
+  }
+  20% {
+    transform: scaleX(0.55) scaleY(0.96);
+  }
+  40% {
+    transform: scaleX(0.08) scaleY(0.9);
+  }
+  60% {
+    transform: scaleX(0.55) scaleY(0.96);
+  }
+  80% {
+    transform: scaleX(1) scaleY(1.02);
+  }
+  100% {
+    transform: scaleX(1) scaleY(1.02);
+  }
 }
 
 /* WRAPPER — lintasan terbang */
@@ -1478,7 +1581,6 @@ textarea {
   will-change: transform;
 }
 
-
 /* ══════════════════════════════════════
    KUPU-KUPU 2 (Kecil) — Terbang Bebas & Jarang Hinggap
 ══════════════════════════════════════ */
@@ -1488,43 +1590,78 @@ textarea {
 /* Orientasi berdasarkan asumsi: 0deg = menghadap atas, 90deg = menghadap kanan */
 @keyframes bf-fly-2 {
   /* Berawal dari Kanan Atas, di luar layar */
-  0%   { transform: translate(120vw, 10vh) rotate(-140deg); opacity: 0; }
-  2%   { opacity: 1; }
-  
+  0% {
+    transform: translate(120vw, 10vh) rotate(-140deg);
+    opacity: 0;
+  }
+  2% {
+    opacity: 1;
+  }
+
   /* Meluncur perlahan dan elegan ke arah Kiri Bawah */
-  10%  { transform: translate(70vw, 25vh) rotate(-130deg); }
-  
+  10% {
+    transform: translate(70vw, 25vh) rotate(-130deg);
+  }
+
   /* Melengkung membelok ke kiri (menikung) */
-  20%  { transform: translate(35vw, 30vh) rotate(-100deg); }
-  
+  20% {
+    transform: translate(35vw, 30vh) rotate(-100deg);
+  }
+
   /* Menukik perlahan memutar ke bawah menuju area tengah */
-  30%  { transform: translate(25vw, 60vh) rotate(-160deg); }
-  
+  30% {
+    transform: translate(25vw, 60vh) rotate(-160deg);
+  }
+
   /* Bermain memutar arah ke Atas Kanan (menjelang teks) */
-  35%  { transform: translate(45vw, 65vh) rotate(110deg); }
-  
+  35% {
+    transform: translate(45vw, 65vh) rotate(110deg);
+  }
+
   /* Mulai mendarat halus dari arah bawah diagonal ke tulisan "ati" (~66vw, 42vh) */
-  40%  { transform: translate(66vw, 42vh) rotate(35deg); }
-  41%  { transform: translate(66vw, 42vh) rotate(15deg); } /* Selesai landing, posisinya tegak pelan */
-  
+  40% {
+    transform: translate(66vw, 42vh) rotate(35deg);
+  }
+  41% {
+    transform: translate(66vw, 42vh) rotate(15deg);
+  } /* Selesai landing, posisinya tegak pelan */
+
   /* HINGGAP di "ati" (selama ~6 detik, 41% - 55%) 
      Bergeser pelan / bernapas agar terasa hidup */
-  45%  { transform: translate(66.2vw, 42.1vh) rotate(12deg); }
-  50%  { transform: translate(65.8vw, 41.9vh) rotate(18deg); }
-  55%  { transform: translate(66vw, 42vh)   rotate(15deg); }
-  
+  45% {
+    transform: translate(66.2vw, 42.1vh) rotate(12deg);
+  }
+  50% {
+    transform: translate(65.8vw, 41.9vh) rotate(18deg);
+  }
+  55% {
+    transform: translate(66vw, 42vh) rotate(15deg);
+  }
+
   /* Bersiap lepas landas perlahan */
-  56%  { transform: translate(65vw, 40vh) rotate(-45deg); } 
-  
+  56% {
+    transform: translate(65vw, 40vh) rotate(-45deg);
+  }
+
   /* Terbang perlahan menanjak ke Atas-Kiri */
-  65%  { transform: translate(40vw, 15vh) rotate(-55deg); }
-  
+  65% {
+    transform: translate(40vw, 15vh) rotate(-55deg);
+  }
+
   /* Keluar layar sangat mulus di pojok Kiri Atas */
-  75%  { transform: translate(-10vw, -10vh) rotate(-45deg); opacity: 1; }
-  77%  { opacity: 0; }
-  
+  75% {
+    transform: translate(-10vw, -10vh) rotate(-45deg);
+    opacity: 1;
+  }
+  77% {
+    opacity: 0;
+  }
+
   /* Siklus hilang (istirahat di luar layar) sebelum mengulangi atraksi dari Kanan Atas */
-  100% { transform: translate(-10vw, -10vh) rotate(-45deg); opacity: 0; }
+  100% {
+    transform: translate(-10vw, -10vh) rotate(-45deg);
+    opacity: 0;
+  }
 }
 
 /* Sinkronisasi Kepak Sayap dengan waktu Terbang dan Hinggap (dalam siklus 45s) */
@@ -1533,35 +1670,221 @@ textarea {
   /* FASE TERBANG MASUK & LIAR (0 - 41%) 
      Animasi sayap melambat, 1 kepak lambay per 1% siklus = 0.45s 
      (Menyerupai kupu-kupu besar) */
-  0%, 1%, 2%, 3%, 4%, 5%, 6%, 7%, 8%, 9%, 10%, 11%, 12%, 13%, 14%, 15%, 16%, 17%, 18%, 19%, 20%, 
-  21%, 22%, 23%, 24%, 25%, 26%, 27%, 28%, 29%, 30%, 31%, 32%, 33%, 34%, 35%, 36%, 37%, 38%, 39%, 40%, 41% 
-  { transform: scaleX(1) scaleY(1.02); }
-  
-  0.5%, 1.5%, 2.5%, 3.5%, 4.5%, 5.5%, 6.5%, 7.5%, 8.5%, 9.5%, 10.5%, 11.5%, 12.5%, 13.5%, 14.5%, 15.5%, 16.5%, 17.5%, 18.5%, 19.5%, 
-  20.5%, 21.5%, 22.5%, 23.5%, 24.5%, 25.5%, 26.5%, 27.5%, 28.5%, 29.5%, 30.5%, 31.5%, 32.5%, 33.5%, 34.5%, 35.5%, 36.5%, 37.5%, 38.5%, 39.5%, 40.5% 
-  { transform: scaleX(0.1) scaleY(0.90); }
+  0%,
+  1%,
+  2%,
+  3%,
+  4%,
+  5%,
+  6%,
+  7%,
+  8%,
+  9%,
+  10%,
+  11%,
+  12%,
+  13%,
+  14%,
+  15%,
+  16%,
+  17%,
+  18%,
+  19%,
+  20%,
+  21%,
+  22%,
+  23%,
+  24%,
+  25%,
+  26%,
+  27%,
+  28%,
+  29%,
+  30%,
+  31%,
+  32%,
+  33%,
+  34%,
+  35%,
+  36%,
+  37%,
+  38%,
+  39%,
+  40%,
+  41% {
+    transform: scaleX(1) scaleY(1.02);
+  }
+
+  0.5%,
+  1.5%,
+  2.5%,
+  3.5%,
+  4.5%,
+  5.5%,
+  6.5%,
+  7.5%,
+  8.5%,
+  9.5%,
+  10.5%,
+  11.5%,
+  12.5%,
+  13.5%,
+  14.5%,
+  15.5%,
+  16.5%,
+  17.5%,
+  18.5%,
+  19.5%,
+  20.5%,
+  21.5%,
+  22.5%,
+  23.5%,
+  24.5%,
+  25.5%,
+  26.5%,
+  27.5%,
+  28.5%,
+  29.5%,
+  30.5%,
+  31.5%,
+  32.5%,
+  33.5%,
+  34.5%,
+  35.5%,
+  36.5%,
+  37.5%,
+  38.5%,
+  39.5%,
+  40.5% {
+    transform: scaleX(0.1) scaleY(0.9);
+  }
 
   /* FASE HINGGAP DI TEKS "ati" (41% - 55% = ~6.3 detik) 
      Kupu-kupu menutup sayap saat mendarat, lalu terdiam santai */
-  41.5% { transform: scaleX(0.1) scaleY(0.90); } /* Menutup penuh saat mendarat */
-  44% { transform: scaleX(0.1) scaleY(0.90); }
-  46% { transform: scaleX(0.85) scaleY(1.0); } /* Bernafas, buka sayap pelan */
-  48% { transform: scaleX(0.85) scaleY(1.0); } 
-  49% { transform: scaleX(0.1) scaleY(0.90); } /* Tutup kembali perlahan */
-  
-  52% { transform: scaleX(0.1) scaleY(0.90); }
-  53% { transform: scaleX(0.4) scaleY(0.95); } /* Getar sayap setengah ragu-ragu */
-  54% { transform: scaleX(0.1) scaleY(0.90); }
+  41.5% {
+    transform: scaleX(0.1) scaleY(0.9);
+  } /* Menutup penuh saat mendarat */
+  44% {
+    transform: scaleX(0.1) scaleY(0.9);
+  }
+  46% {
+    transform: scaleX(0.85) scaleY(1);
+  } /* Bernafas, buka sayap pelan */
+  48% {
+    transform: scaleX(0.85) scaleY(1);
+  }
+  49% {
+    transform: scaleX(0.1) scaleY(0.9);
+  } /* Tutup kembali perlahan */
+
+  52% {
+    transform: scaleX(0.1) scaleY(0.9);
+  }
+  53% {
+    transform: scaleX(0.4) scaleY(0.95);
+  } /* Getar sayap setengah ragu-ragu */
+  54% {
+    transform: scaleX(0.1) scaleY(0.9);
+  }
 
   /* FASE TERBANG PERGI (55% - 100%) 
      Kembali terbang kepakan lambay keluar layar */
-  55%, 56%, 57%, 58%, 59%, 60%, 61%, 62%, 63%, 64%, 65%, 66%, 67%, 68%, 69%, 70%, 71%, 72%, 73%, 74%, 75%, 76%, 77%, 78%, 79%, 80%, 
-  81%, 82%, 83%, 84%, 85%, 86%, 87%, 88%, 89%, 90%, 91%, 92%, 93%, 94%, 95%, 96%, 97%, 98%, 99%, 100% 
-  { transform: scaleX(1) scaleY(1.02); }
-  
-  55.5%, 56.5%, 57.5%, 58.5%, 59.5%, 60.5%, 61.5%, 62.5%, 63.5%, 64.5%, 65.5%, 66.5%, 67.5%, 68.5%, 69.5%, 70.5%, 71.5%, 72.5%, 73.5%, 74.5%, 75.5%, 76.5%, 77.5%, 78.5%, 79.5%, 80.5%, 
-  81.5%, 82.5%, 83.5%, 84.5%, 85.5%, 86.5%, 87.5%, 88.5%, 89.5%, 90.5%, 91.5%, 92.5%, 93.5%, 94.5%, 95.5%, 96.5%, 97.5%, 98.5%, 99.5% 
-  { transform: scaleX(0.1) scaleY(0.90); }
+  55%,
+  56%,
+  57%,
+  58%,
+  59%,
+  60%,
+  61%,
+  62%,
+  63%,
+  64%,
+  65%,
+  66%,
+  67%,
+  68%,
+  69%,
+  70%,
+  71%,
+  72%,
+  73%,
+  74%,
+  75%,
+  76%,
+  77%,
+  78%,
+  79%,
+  80%,
+  81%,
+  82%,
+  83%,
+  84%,
+  85%,
+  86%,
+  87%,
+  88%,
+  89%,
+  90%,
+  91%,
+  92%,
+  93%,
+  94%,
+  95%,
+  96%,
+  97%,
+  98%,
+  99%,
+  100% {
+    transform: scaleX(1) scaleY(1.02);
+  }
+
+  55.5%,
+  56.5%,
+  57.5%,
+  58.5%,
+  59.5%,
+  60.5%,
+  61.5%,
+  62.5%,
+  63.5%,
+  64.5%,
+  65.5%,
+  66.5%,
+  67.5%,
+  68.5%,
+  69.5%,
+  70.5%,
+  71.5%,
+  72.5%,
+  73.5%,
+  74.5%,
+  75.5%,
+  76.5%,
+  77.5%,
+  78.5%,
+  79.5%,
+  80.5%,
+  81.5%,
+  82.5%,
+  83.5%,
+  84.5%,
+  85.5%,
+  86.5%,
+  87.5%,
+  88.5%,
+  89.5%,
+  90.5%,
+  91.5%,
+  92.5%,
+  93.5%,
+  94.5%,
+  95.5%,
+  96.5%,
+  97.5%,
+  98.5%,
+  99.5% {
+    transform: scaleX(0.1) scaleY(0.9);
+  }
 }
 
 /* WRAPPER — lintasan terbang Kupu-kupu 2 */
@@ -1581,12 +1904,12 @@ textarea {
 /* IMG — Kupu-kupu 2 mengepak sinkron dengan lintasan (siklus 45s) */
 .hs-butterfly-wings-2 {
   display: block;
-  width: 40px; 
-  height: 40px; 
+  width: 40px;
+  height: 40px;
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
   /* Sinkron mendarat dgn durasi 45 detik wrapper! */
-  animation: bf-wings-landing 45s linear infinite; 
-  animation-delay: 2s; 
+  animation: bf-wings-landing 45s linear infinite;
+  animation-delay: 2s;
   transform-origin: center center;
   will-change: transform;
 }
@@ -1625,4 +1948,3 @@ textarea {
     scroll-behavior: auto !important;
   }
 }
-

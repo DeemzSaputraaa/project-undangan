@@ -1,4 +1,8 @@
-import { Playfair_Display, Plus_Jakarta_Sans, Great_Vibes } from "next/font/google";
+import {
+  Playfair_Display,
+  Plus_Jakarta_Sans,
+  Great_Vibes,
+} from "next/font/google";
 import "./globals.css";
 
 const headingFont = Playfair_Display({
@@ -20,14 +24,17 @@ const scriptFont = Great_Vibes({
 });
 
 export const metadata = {
-  title: "Undangan Digital | Riyo & Lukmaniati",
-  description: "Undangan pernikahan digital yang responsif dan mobile-friendly.",
+  title: "Undangan Digital | Riyo & Lukma",
+  description:
+    "Undangan pernikahan digital yang responsif dan mobile-friendly.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="id">
-      <body className={`${headingFont.variable} ${bodyFont.variable} ${scriptFont.variable}`}>
+      <body
+        className={`${headingFont.variable} ${bodyFont.variable} ${scriptFont.variable}`}
+      >
         {children}
       </body>
     </html>

@@ -168,18 +168,48 @@ export default function WishesSection() {
                     </svg>
                   </div>
                   <div style={{ flex: 1 }}>
-                    <p style={{ margin: "0 0 5px 0", fontSize: "0.92rem", color: "rgba(255,255,255,0.88)", lineHeight: 1.6, wordBreak: "break-word", overflowWrap: "break-word" }}>
+                    <p style={{ margin: "0 0 6px 0", fontSize: "0.8rem", color: "rgba(255,255,255,0.55)", fontWeight: 700, wordBreak: "break-word", overflowWrap: "break-word", display: "flex", gap: "10px", alignItems: "center", flexWrap: "wrap" }}>
+                      <span>- {w.name}</span>
+                      <span style={{ fontSize: "0.76rem", fontWeight: "700", color: w.attendance === "hadir" ? "#81c784" : w.attendance === "tidak-hadir" ? "#ef9a9a" : "rgba(255,255,255,0.45)", display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                        {w.attendance === "hadir" ? (
+                          <>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                              <path d="M20 6L9 17l-5-5"></path>
+                            </svg>
+                            Hadir
+                          </>
+                        ) : w.attendance === "tidak-hadir" ? (
+                          <>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                              <path d="M18 6L6 18"></path>
+                              <path d="M6 6l12 12"></path>
+                            </svg>
+                            Tidak Hadir
+                          </>
+                        ) : (
+                          <>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                              <circle cx="12" cy="12" r="9"></circle>
+                              <path d="M9.5 9a2.5 2.5 0 1 1 3.7 2.2c-.9.5-1.2.9-1.2 1.8"></path>
+                              <circle cx="12" cy="17" r="1"></circle>
+                            </svg>
+                            Masih Ragu
+                          </>
+                        )}
+                      </span>
+                    </p>
+                    <p style={{ margin: "0 0 6px 0", fontSize: "0.92rem", color: "rgba(255,255,255,0.88)", lineHeight: 1.6, wordBreak: "break-word", overflowWrap: "break-word" }}>
                       {w.message}
                     </p>
                     <div style={{ display: "flex", gap: "10px", alignItems: "center", flexWrap: "wrap" }}>
-                      <span style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.38)" }}>🕐 {timeAgo(w.created_at)}</span>
-                      <span style={{ fontSize: "0.76rem", fontWeight: "700", color: w.attendance === "hadir" ? "#81c784" : w.attendance === "tidak-hadir" ? "#ef9a9a" : "rgba(255,255,255,0.45)" }}>
-                        {w.attendance === "hadir" ? "✓ Hadir" : w.attendance === "tidak-hadir" ? "✗ Tidak Hadir" : "? Masih Ragu"}
+                      <span style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.38)", display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <circle cx="12" cy="12" r="9"></circle>
+                          <path d="M12 7v6l4 2"></path>
+                        </svg>
+                        {timeAgo(w.created_at)}
                       </span>
                     </div>
-                    <p style={{ margin: "4px 0 0 0", fontSize: "0.8rem", color: "rgba(255,255,255,0.55)", fontWeight: 700, wordBreak: "break-word", overflowWrap: "break-word" }}>
-                      — {w.name}
-                    </p>
                   </div>
                 </div>
               ))}
