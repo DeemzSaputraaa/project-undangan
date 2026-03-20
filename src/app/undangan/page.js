@@ -114,17 +114,14 @@ export default function UndanganPage() {
               >
                 <div
                   style={{
-                    width: "min(250px, 65vw)",
-                    aspectRatio: "4/5",
-                    borderRadius: "200px",
-                    backgroundImage: "url('/images/cowok.jpeg')",
-                    backgroundSize: "140%",
-                    backgroundPosition: "center 20%",
-                    marginBottom: "24px",
+                    width: "min(350px, 85vw)",
+                    aspectRatio: "1/1",
+                    backgroundImage: "url('/images/priabunga.png')",
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "bottom center",
+                    marginBottom: "-10px",
                     marginTop: "-30px",
-                    border: "6px solid rgba(255, 220, 228, 0.25)",
-                    boxShadow:
-                      "0 14px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,220,228,0.1)",
                   }}
                 ></div>
                 <h3
@@ -204,17 +201,14 @@ export default function UndanganPage() {
               >
                 <div
                   style={{
-                    width: "min(250px, 65vw)",
-                    aspectRatio: "4/5",
-                    borderRadius: "200px",
-                    backgroundImage: "url('/images/cewek.jpeg')",
-                    backgroundSize: "140%",
-                    backgroundPosition: "center 20%",
-                    marginBottom: "24px",
+                    width: "min(350px, 85vw)",
+                    aspectRatio: "1/1",
+                    backgroundImage: "url('/images/wanitabunga.png')",
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "bottom center",
+                    marginBottom: "-10px",
                     marginTop: "-30px",
-                    border: "6px solid rgba(255, 220, 228, 0.25)",
-                    boxShadow:
-                      "0 14px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,220,228,0.1)",
                   }}
                 ></div>
                 <h3
@@ -275,7 +269,7 @@ export default function UndanganPage() {
         id="save-the-date"
         style={{
           padding: "clamp(40px, 8vw, 80px) 0",
-          background: "url('/images/awal.jpg') center 35% / cover",
+          background: "url('/images/bg2.png') center / cover",
           position: "relative",
         }}
       >
@@ -284,7 +278,7 @@ export default function UndanganPage() {
           style={{
             position: "absolute",
             inset: 0,
-            backgroundColor: "rgba(253, 248, 245, 0.85)",
+            backgroundColor: "rgba(253, 248, 245, 0.70)",
           }}
         ></div>
 
@@ -391,7 +385,7 @@ export default function UndanganPage() {
                       rel="noopener noreferrer"
                       className="acara-btn"
                     >
-                      LIHAT LOKASI
+                      Lihat Lokasi
                     </a>
                   </div>
                 </div>

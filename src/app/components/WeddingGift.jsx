@@ -19,7 +19,7 @@ export default function WeddingGift() {
       id="gift"
       style={{
         padding: "clamp(40px, 8vw, 80px) 0",
-        background: "url('/images/awal.jpg') center 35% / cover",
+        background: "url('/images/bg2.png') center / cover",
         position: "relative",
       }}
     >
@@ -28,7 +28,7 @@ export default function WeddingGift() {
         style={{
           position: "absolute",
           inset: 0,
-          backgroundColor: "rgba(253, 248, 245, 0.85)",
+          backgroundColor: "rgba(253, 248, 245, 0.70)",
         }}
       ></div>
 

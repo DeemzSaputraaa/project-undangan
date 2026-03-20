@@ -1,21 +1,21 @@
 :root {
-  --ink: #ffe8ee; /* putih rose — teks utama di bg gelap */
-  --ink-soft: #e5b8c5; /* rose lebih cerah — teks sekunder agar lebih terbaca */
-  --paper: #f5d6de; /* rose terang */
-  --cream: #f0c8d0; /* krem rose */
-  --gold: #e8b87a; /* emas hangat — aksen dekoratif */
-  --sage: #d4a0b0; /* rose mauve — eyebrow label */
-  --blush: rgba(255, 220, 228, 0.18); /* blush glass */
-  --deep: #501f30; /* burgundy utama — tombol utama */
-  --accent: #ffaabb; /* rose cerah — highlight di bg gelap */
+  --ink: #f5f1ea; /* teks utama/btn */
+  --ink-soft: #ebe6dc; /* teks sekunder agar lebih terbaca */
+  --paper: #f5f1ea; /* cream terang */
+  --cream: #ebe6dc; /* cream kalem */
+  --gold: #f7f4ee; /* cream aksen dekoratif/judul */
+  --sage: #ebe6dc; /* cream label */
+  --blush: rgba(245, 241, 234, 0.18); /* white glass */
+  --deep: #1e2027; /* charcoal gelap — tombol utama */
+  --accent: #f7f4ee; /* highlight di bg gelap */
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
   --shadow-card: 0 12px 40px rgba(0, 0, 0, 0.35);
   --radius-xl: 28px;
   --radius-lg: 20px;
   --radius-md: 14px;
-  --wine-bg: #501f30; /* background utama — burgundy solid */
-  --glass: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 220, 228, 0.2);
+  --wine-bg: #2c2f38; /* background utama — charcoal solid */
+  --glass: rgba(245, 241, 234, 0.08);
+  --glass-border: rgba(245, 241, 234, 0.2);
 }
 
 /* Utility to hide standard scrollbars but keep scrolling functionality */
@@ -40,7 +40,7 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  background-color: #501f30;
+  background-color: var(--wine-bg);
   font-family: var(--font-body), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -66,7 +66,7 @@ img {
   width: min(1120px, 92vw);
   margin: 0 auto;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .section {
@@ -80,11 +80,9 @@ img {
   align-items: center;
   position: relative;
   padding: 70px 0;
-  background-image: url("/images/awal.jpg");
-  background-size: cover;
-  background-position: center 20%;
-  background-repeat: no-repeat;
+  background: #2c2f38;
   isolation: isolate;
+  overflow: hidden;
 }
 
 .opening-full {
@@ -98,10 +96,9 @@ img {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(90, 15, 30, 0.55) 0%,
-    rgba(107, 18, 40, 0.28) 35%,
-    rgba(107, 18, 40, 0.28) 60%,
-    rgba(60, 8, 20, 0.7) 100%
+    rgba(28, 30, 36, 0.35) 0%,
+    rgba(24, 26, 31, 0.55) 50%,
+    rgba(18, 20, 24, 0.75) 100%
   );
   z-index: 0;
   pointer-events: none;
@@ -113,14 +110,275 @@ img {
   justify-items: center;
   text-align: center;
   position: relative;
-  z-index: 1;
+  z-index: 2;
+}
+
+/* === Animasi Angin Sepoi-Sepoi === */
+@keyframes swayLeft {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-2deg); }
+  50% { transform: rotate(1deg); }
+  75% { transform: rotate(-1.5deg); }
+}
+
+@keyframes swayRight {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  50% { transform: rotate(-1deg); }
+  75% { transform: rotate(1.5deg); }
+}
+
+@keyframes swayCenter {
+  0%, 100% { transform: translateX(-50%) rotate(0deg); }
+  25% { transform: translateX(-50%) rotate(-1.5deg); }
+  50% { transform: translateX(-50%) rotate(1deg); }
+  75% { transform: translateX(-50%) rotate(-1deg); }
+}
+
+@keyframes swayMirror {
+  0%, 100% { transform: scaleX(-1) rotate(0deg); }
+  25% { transform: scaleX(-1) rotate(2deg); }
+  50% { transform: scaleX(-1) rotate(-1deg); }
+  75% { transform: scaleX(-1) rotate(1.5deg); }
+}
+
+@keyframes swayTopLeft {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(1.5deg); }
+  50% { transform: rotate(-1deg); }
+  75% { transform: rotate(1deg); }
+}
+
+@keyframes swayTopRight {
+  0%, 100% { transform: scaleX(-1) rotate(0deg); }
+  25% { transform: scaleX(-1) rotate(1.5deg); }
+  50% { transform: scaleX(-1) rotate(-1deg); }
+  75% { transform: scaleX(-1) rotate(1deg); }
+}
+
+/* === Bunga Atas === */
+.opening-flower-atas {
+  position: absolute;
+  top: -20px; /* Diturunkan sedikit ke bawah */
+  width: clamp(120px, 16vw, 250px); /* Dipersempit agar lebih mungil */
+  height: auto;
+  opacity: 0.9;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.opening-flower-atas1-kiri {
+  left: clamp(-65px, -10vw, -20px); /* Digeser lebih ke KANAN (ke arah tengah) */
+  transform-origin: left top;
+  animation: swayTopLeft 7s ease-in-out infinite;
+}
+
+.opening-flower-atas2-kiri {
+  top: -50px; /* Diangkat lebih ke atas secara spesifik */
+  left: 20px; /* Digeser leih ke KANAN */
+  transform-origin: left top;
+  animation: swayTopLeft 7.5s ease-in-out infinite;
+  animation-delay: 0.4s;
+}
+
+.opening-flower-atas1-kanan {
+  right: clamp(-65px, -10vw, -20px); /* Digeser simetris (ke arah tengah) */
+  transform-origin: center top; /* Center agar bila di cermin scaleX(-1) tetap dalam layar! */
+  animation: swayTopRight 7s ease-in-out infinite;
+}
+
+.opening-flower-atas2-kanan {
+  top: -50px; /* Diangkat lebih ke atas secara spesifik menyamakan kiri */
+  right: 20px; /* Digeser simetris (ke arah tengah / kiri) */
+  transform-origin: center top; /* Center agar tetap dalam layar */
+  animation: swayTopRight 7.5s ease-in-out infinite;
+  animation-delay: 0.4s;
+}
+.opening-flower-sudut {
+  position: absolute;
+  bottom: -15px;
+  width: clamp(160px, 22vw, 320px);
+  height: auto;
+  opacity: 0.9;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.opening-flower-sudut-kiri {
+  left: 0;
+  transform-origin: left bottom;
+  animation: swayLeft 6s ease-in-out infinite;
+}
+
+.opening-flower-sudut-kanan {
+  right: 0;
+  transform-origin: right bottom;
+  animation: swayRight 7s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.opening-flower-bottom {
+  position: absolute;
+  bottom: -15px; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(180px, 22vw, 320px);
+  height: auto;
+  opacity: 0.9;
+  z-index: 3;
+  pointer-events: none;
+  transform-origin: center bottom;
+  animation: swayCenter 8s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.opening-flower-bawah {
+  position: absolute;
+  bottom: -15px;
+  width: clamp(180px, 20vw, 300px);
+  height: auto;
+  opacity: 0.9;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.opening-flower-bawah-left {
+  right: 50%;
+  margin-right: clamp(50px, 8vw, 120px);
+  transform-origin: center bottom;
+  animation: swayLeft 7s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+.opening-flower-bawah-right {
+  left: 50%;
+  margin-left: clamp(50px, 8vw, 120px);
+  transform: scaleX(-1);
+  transform-origin: center bottom;
+  animation: swayMirror 6.5s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+.opening-flower-bawah2 {
+  position: absolute;
+  bottom: -15px;
+  width: clamp(160px, 18vw, 280px);
+  height: auto;
+  opacity: 0.9;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.opening-flower-bawah2-left {
+  right: 50%;
+  margin-right: clamp(180px, 24vw, 360px);
+  transform-origin: center bottom;
+  animation: swayRight 7.5s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+.opening-flower-bawah2-right {
+  left: 50%;
+  margin-left: clamp(180px, 24vw, 360px);
+  transform: scaleX(-1);
+  transform-origin: center bottom;
+  animation: swayMirror 6s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+/* Tablet / iPad */
+@media (max-width: 1024px) {
+  .opening-flower-sudut {
+    width: clamp(180px, 28vw, 340px); /* Sudut BESAR */
+  }
+  .opening-flower-bottom {
+    width: clamp(220px, 34vw, 400px); /* Bunga4 lebih BESAR */
+  }
+  .opening-flower-bawah {
+    width: clamp(200px, 28vw, 360px); /* Bawah lebih besar */
+  }
+  .opening-flower-bawah-left {
+    margin-right: clamp(60px, 10vw, 140px);
+  }
+  .opening-flower-bawah-right {
+    margin-left: clamp(60px, 10vw, 140px);
+  }
+  .opening-flower-bawah2 {
+    width: clamp(180px, 24vw, 320px); /* Bawah2 lebih besar */
+  }
+  .opening-flower-bawah2-left {
+    margin-right: clamp(160px, 22vw, 320px);
+  }
+  .opening-flower-bawah2-right {
+    margin-left: clamp(160px, 22vw, 320px);
+  }
+  .opening-flower-atas {
+    width: clamp(100px, 24vw, 200px); /* Makin kecil di tablet */
+  }
+
+  /* Penyesuaian offset bunga atas untuk tablet & mobile */
+  .opening-flower-atas1-kiri {
+    left: -40px; /* Digeser lebih jauh ke luar/kiri lagi */
+    top: -20px;
+  }
+  .opening-flower-atas2-kiri {
+    left: 35px; /* Lebih ke kanan lagi untuk tablet/iPad */
+    top: -30px;
+  }
+
+  .opening-flower-atas1-kanan {
+    right: -40px; /* Simetris mundur lebih ke tepi kanan layar */
+    top: -20px;
+  }
+  .opening-flower-atas2-kanan {
+    right: 35px; /* Lebih ke kiri lagi untuk tablet/iPad */
+    top: -30px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .opening-flower-sudut {
+    width: clamp(140px, 42vw, 200px); /* Sudut BESAR di mobile */
+  }
+  .opening-flower-bottom {
+    width: clamp(180px, 52vw, 260px); /* Bunga4 lebih BESAR di mobile */
+  }
+  .opening-flower-bawah {
+    width: clamp(140px, 44vw, 220px); /* Bawah lebih besar di mobile */
+  }
+  .opening-flower-bawah-left {
+    margin-right: clamp(40px, 12vw, 80px);
+  }
+  .opening-flower-bawah-right {
+    margin-left: clamp(40px, 12vw, 80px);
+  }
+  .opening-flower-bawah2 {
+    width: clamp(120px, 38vw, 200px); /* Bawah2 lebih besar di mobile */
+  }
+  .opening-flower-bawah2-left {
+    margin-right: clamp(110px, 32vw, 170px);
+  }
+  .opening-flower-bawah2-right {
+    margin-left: clamp(110px, 32vw, 170px);
+  }
+  .opening-flower-atas {
+    width: clamp(80px, 30vw, 140px); /* Makin kecil di mobile */
+  }
+
+  /* Kembalikan pergeseran atas2 agar tidak terlalu terpisah di layar keci HP */
+  .opening-flower-atas2-kiri {
+    left: 10px;
+  }
+  .opening-flower-atas2-kanan {
+    right: 10px;
+  }
 }
 
 .opening-meta {
   display: grid;
   grid-auto-flow: column;
   gap: 14px;
-  font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: #f3ead9;
@@ -213,7 +471,7 @@ img {
   align-items: center;
   text-align: center;
   padding: 56px clamp(24px, 6vw, 72px) 56px;
-  color: #fff;
+  color: #f5f1ea;
 }
 
 .cover-top {
@@ -227,7 +485,7 @@ img {
   font-style: italic;
   font-weight: 400;
   font-size: clamp(0.95rem, 2.2vw, 1.25rem);
-  color: rgba(255, 235, 240, 0.88);
+  color: rgba(235, 230, 220, 0.9);
   margin: 0;
   letter-spacing: 0.03em;
 }
@@ -236,10 +494,18 @@ img {
   font-family: var(--font-heading), serif;
   font-size: clamp(2rem, 5.5vw, 3.8rem);
   font-weight: 700;
-  color: #fff;
+  color: #f7f4ee;
   margin: 0;
   line-height: 1.08;
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+}
+
+.cover-ornament {
+  width: clamp(150px, 34vw, 320px);
+  height: auto;
+  margin: 18px auto 0;
+  display: block;
+  opacity: 0.9;
 }
 
 .cover-bottom {
@@ -249,11 +515,24 @@ img {
   gap: 2px;
 }
 
+@media (max-width: 900px) {
+  .cover-ornament {
+    width: clamp(180px, 60vw, 380px);
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 700px) {
+  .cover-ornament {
+    width: clamp(220px, 52vw, 420px);
+  }
+}
+
+
 .cover-dear {
   font-size: 0.75rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(255, 215, 225, 0.78);
+  color: rgba(220, 210, 200, 0.8);
   margin: 0;
 }
 
@@ -262,15 +541,15 @@ img {
   font-size: clamp(1.3rem, 3vw, 1.8rem);
   font-style: italic;
   font-weight: 500;
-  color: #fff;
+  color: #f7f4ee;
   margin: 0 0 18px;
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.3);
 }
 
 .cover-btn {
-  background: rgba(255, 255, 255, 0.12) !important;
-  color: #fff !important;
-  border: 1px solid rgba(255, 255, 255, 0.38) !important;
+  background: rgba(245, 241, 234, 0.12) !important;
+  color: #f5f1ea !important;
+  border: 1px solid rgba(245, 241, 234, 0.45) !important;
   backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
   font-size: 0.9rem;
@@ -279,7 +558,23 @@ img {
 }
 
 .cover-btn:hover {
-  background: rgba(255, 255, 255, 0.22) !important;
+  background: rgba(245, 241, 234, 0.22) !important;
+}
+
+@media (max-width: 1024px) and (min-width: 700px) {
+  .cover-content {
+    justify-content: center;
+    gap: 64px;
+    padding: 72px 6vw 80px;
+  }
+
+  .cover-bottom {
+    margin-top: 22px;
+  }
+
+  .cover-btn {
+    margin-top: 16px;
+  }
 }
 
 /* ══════════════════════════════════════
@@ -292,31 +587,18 @@ img {
   min-height: 560px;
   overflow: hidden;
   isolation: isolate;
-  background-color: #501f30;
+  background-color: var(--wine-bg);
 }
 
-/* — Foto slides — */
-.hs-track {
+/* — Background video — */
+.hs-video-bg {
   position: absolute;
   inset: 0;
-}
-
-.hs-slide {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  background-color: #501f30;
-}
-
-/* Inner image layer for zoom effect */
-.hs-slide-img {
-  position: absolute;
-  inset: -1px;
-  background-size: cover;
-  background-position: center 20%;
-  background-repeat: no-repeat;
-  background-color: #501f30;
-  transition: transform 4s ease-out;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  z-index: 1;
 }
 
 /* — Wine color overlay — */
@@ -326,10 +608,10 @@ img {
   z-index: 3;
   background: linear-gradient(
     180deg,
-    rgba(90, 15, 30, 0.5) 0%,
-    rgba(107, 18, 40, 0.25) 40%,
-    rgba(107, 18, 40, 0.3) 60%,
-    rgba(50, 8, 18, 0.72) 100%
+    rgba(28, 30, 36, 0.4) 0%,
+    rgba(34, 36, 43, 0.2) 40%,
+    rgba(34, 36, 43, 0.25) 60%,
+    rgba(25, 27, 33, 0.75) 100%
   );
   pointer-events: none;
 }
@@ -351,21 +633,34 @@ img {
 
 .hs-label {
   font-size: clamp(0.78rem, 2vw, 1rem);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(255, 230, 235, 0.85);
+  color: var(--deep);
   margin: 0;
+  text-shadow: none;
 }
 
 .hs-names {
   font-family: var(--font-heading), serif;
   font-size: clamp(2rem, 7vw, 4rem);
-  font-weight: 700;
+  font-weight: 800;
   margin: 0;
   line-height: 1.1;
-  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.45);
-  color: #fff;
+  text-shadow: none;
+  color: var(--deep);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  column-gap: 12px;
+}
+
+@media (max-width: 600px) {
+  .hs-names {
+    flex-direction: column;
+    gap: 6px; /* Memberikan jarak antar baris */
+  }
 }
 
 .hs-divider {
@@ -379,15 +674,72 @@ img {
   display: block;
   width: 56px;
   height: 1px;
-  background: rgba(255, 220, 228, 0.55);
+  background: rgba(30, 32, 39, 0.35);
 }
 
 .hs-date {
   font-size: clamp(1rem, 2.5vw, 1.3rem);
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.18em;
-  color: rgba(255, 230, 235, 0.92);
+  color: var(--deep);
   margin: 0;
+  text-shadow: none;
+}
+
+/* — Bunga Bawah Hero — */
+.hs-flowers-bottom {
+  position: absolute;
+  bottom: -5px; /* Menempel persis dengan batas bawah hero */
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Dipaskan ke tengah agar bersebelahan rapat */
+  align-items: flex-end;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.hs-flower {
+  width: clamp(250px, 55vw, 700px); /* Ukuran besar (masing-masing 55% dari lebar layar) */
+  object-fit: contain;
+  opacity: 0.95;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+  will-change: transform;
+}
+
+.hs-flower-left {
+  margin-right: -4vw; /* Menumpuk sedikit di tengah agar terlihat menyatu tanpa celah */
+  transform-origin: bottom center;
+  animation: swayLeft 5s ease-in-out infinite alternate;
+}
+
+.hs-flower-right {
+  margin-left: -4vw; /* Menumpuk sedikit di tengah */
+  transform-origin: bottom center;
+  animation: swayRight 6s ease-in-out infinite alternate;
+}
+
+@keyframes swayLeft {
+  0% { transform: rotate(-3deg) scale(1); }
+  100% { transform: rotate(4deg) scale(1.02); }
+}
+
+@keyframes swayRight {
+  0% { transform: rotate(4deg) scale(1.01); }
+  100% { transform: rotate(-3deg) scale(1); }
+}
+
+/* Khusus Desktop: dibuat agak kecil dan lebih dirapatkan lagi di tengah */
+@media (min-width: 900px) {
+  .hs-flower {
+    width: clamp(350px, 42vw, 550px); /* Mengecilkan sedikit dari versi asli */
+  }
+  .hs-flower-left {
+    margin-right: -8vw; /* Lebih tertarik kencang ke tengah */
+  }
+  .hs-flower-right {
+    margin-left: -8vw; /* Lebih tertarik kencang ke tengah */
+  }
 }
 
 /* — Dots navigation — */
@@ -723,23 +1075,25 @@ img {
   align-items: center;
   gap: 6px;
   padding: 12px 28px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--gold), #c69a50);
+  border-radius: 8px; /* Dibuat sedikit rounded (tidak sepenuhnya oval) seperti gambar Kirim */
+  background: rgba(255, 255, 255, 0.15); /* Warna grey agak transparan menyatu dengan background */
+  border: 1px solid rgba(255, 255, 255, 0.6); /* Garis batas (border) tipis keputihan */
   color: #fff;
-  font-weight: 700;
-  font-size: 0.82rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em; /* Mengurangi sedikit letter-spacing agar lebih modern */
+  text-transform: capitalize; /* Karena tombol 'Kirim' kapitalnya normal, bukan full caps */
   text-decoration: none;
-  box-shadow: 0 6px 20px rgba(200, 150, 80, 0.35);
+  box-shadow: none;
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
 }
 
 .acara-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 28px rgba(200, 150, 80, 0.5);
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .hero-grid {

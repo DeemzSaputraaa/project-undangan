@@ -29,7 +29,7 @@ export default function ClosingSection() {
       ref={sectionRef}
       className="section"
       style={{
-        background: "url('/images/awal.jpg') center 20% / cover",
+        background: "url('/images/bg2.png') center / cover",
         position: "relative",
         padding: "clamp(60px, 10vw, 100px) 20px",
         textAlign: "center",
@@ -41,7 +41,7 @@ export default function ClosingSection() {
         style={{
           position: "absolute",
           inset: 0,
-          backgroundColor: "rgba(253, 248, 245, 0.85)",
+          backgroundColor: "rgba(253, 248, 245, 0.70)",
         }}
       ></div>
 
