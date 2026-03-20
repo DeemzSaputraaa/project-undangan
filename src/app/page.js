@@ -17,7 +17,7 @@ export default function Home() {
         <div className="cover-content fade-in">
           <div className="cover-top">
             <p className="cover-script">The Wedding of</p>
-            <h1 className="cover-names">Riyo Setiawan &amp; Lukma</h1>
+            <h1 className="cover-names">Riyo Setiawan &amp; Lukmaniati</h1>
             <img src="/images/awal.png" alt="" className="cover-ornament" />
           </div>
           <div className="cover-bottom">

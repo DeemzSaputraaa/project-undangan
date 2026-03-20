@@ -96,9 +96,9 @@ img {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(28, 30, 36, 0.35) 0%,
-    rgba(24, 26, 31, 0.55) 50%,
-    rgba(18, 20, 24, 0.75) 100%
+    rgba(28, 30, 36, 0.15) 0%,
+    rgba(24, 26, 31, 0.3) 50%,
+    rgba(18, 20, 24, 0.45) 100%
   );
   z-index: 0;
   pointer-events: none;
@@ -608,10 +608,10 @@ img {
   z-index: 3;
   background: linear-gradient(
     180deg,
-    rgba(28, 30, 36, 0.4) 0%,
-    rgba(34, 36, 43, 0.2) 40%,
-    rgba(34, 36, 43, 0.25) 60%,
-    rgba(25, 27, 33, 0.75) 100%
+    rgba(28, 30, 36, 0.2) 0%,
+    rgba(34, 36, 43, 0.1) 40%,
+    rgba(34, 36, 43, 0.15) 60%,
+    rgba(25, 27, 33, 0.4) 100%
   );
   pointer-events: none;
 }
