@@ -288,10 +288,10 @@ export default function WeddingGift() {
                     }}
                   >
                     <div>Nama Penerima : Lukmaniati</div>
-                    <div>No. HP : 081234567890</div>
+                    <div>No. HP : 082269010709</div>
                     <div>Alamat : Kediaman Mempelai Wanita</div>
                     <div>
-                      Suka mandiri sp 3D, Kec. Way Serdang, Suka Agung, Mesuji,
+                      Suka mandiri sp 3D, Kec. Way Serdang, Mesuji,
                       Lampung
                     </div>
                   </div>

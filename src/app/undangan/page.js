@@ -355,7 +355,7 @@ export default function UndanganPage() {
                   <p className="acara-location">
                     <strong>Tempat :</strong>
                     <br />
-                    Suka mandiri sp 3D, Kec. Way Serdang, Suka Agung, Mesuji,
+                    Suka mandiri sp 3D, Kec. Way Serdang, Mesuji,
                     Lampung
                   </p>
                 </div>
