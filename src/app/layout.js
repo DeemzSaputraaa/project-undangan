@@ -29,7 +29,7 @@ export const metadata = {
   description: "Undangan pernikahan digital yang responsif dan mobile-friendly.",
   openGraph: {
     title: "Undangan Digital | Riyo & Lukma",
-    description: "Undangan pernikahan digital yang responsif dan mobile-friendly.",
+    description: "Undangan pernikahan digital yang responsif dan mobile-friendly. Hubungi 082179410376",
     url: 'https://riyo-lukma.vercel.app',
     siteName: 'Undangan Pernikahan Riyo & Lukma',
     images: [
