@@ -24,9 +24,31 @@ const scriptFont = Great_Vibes({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://riyo-lukma.vercel.app'),
   title: "Undangan Digital | Riyo & Lukma",
-  description:
-    "Undangan pernikahan digital yang responsif dan mobile-friendly.",
+  description: "Undangan pernikahan digital yang responsif dan mobile-friendly.",
+  openGraph: {
+    title: "Undangan Digital | Riyo & Lukma",
+    description: "Undangan pernikahan digital yang responsif dan mobile-friendly.",
+    url: 'https://riyo-lukma.vercel.app',
+    siteName: 'Undangan Pernikahan Riyo & Lukma',
+    images: [
+      {
+        url: '/images/berdua.jpeg', // You can change this to any image in your public/images folder like '/images/slide1.jpg'
+        width: 1200,
+        height: 630,
+        alt: 'Riyo & Lukma Wedding',
+      },
+    ],
+    locale: 'id_ID',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Undangan Digital | Riyo & Lukma",
+    description: "Undangan pernikahan digital yang responsif dan mobile-friendly.",
+    images: ['/images/berdua.jpeg'],
+  },
 };
 
 export default function RootLayout({ children }) {
