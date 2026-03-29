@@ -528,6 +528,26 @@ img {
 }
 
 
+.cover-guest-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 10px;
+  animation: fadeUpGuest 1s ease-out 0.5s both;
+}
+
+@keyframes fadeUpGuest {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .cover-dear {
   font-size: 0.75rem;
   letter-spacing: 0.22em;

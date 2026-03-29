@@ -1,4 +1,12 @@
-export default function Home() {
+"use client";
+
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
+
+function CoverContent() {
+  const searchParams = useSearchParams();
+  const guestName = searchParams.get("to") || "";
+
   return (
     <div className="page">
       <section className="opening opening-full">
@@ -21,14 +29,41 @@ export default function Home() {
             <img src="/images/awal.png" alt="" className="cover-ornament" />
           </div>
           <div className="cover-bottom">
-            {/* <p className="cover-dear">Kepada Yth.</p>
-            <p className="cover-guest">Kharisma</p> */}
-            <a href="/undangan" className="button cover-btn">
-              Ke Buka Undangan ›
+            {guestName && (
+              <div className="cover-guest-wrap">
+                <p className="cover-dear">Kepada Yth.</p>
+                <p className="cover-guest">{guestName}</p>
+              </div>
+            )}
+            <a
+              href={guestName ? `/undangan?to=${encodeURIComponent(guestName)}` : "/undangan"}
+              className="button cover-btn"
+            >
+              Buka Undangan ›
             </a>
           </div>
         </div>
       </section>
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={
+      <div className="page">
+        <section className="opening opening-full">
+          <div className="opening-overlay" />
+          <div className="cover-content fade-in">
+            <div className="cover-top">
+              <p className="cover-script">The Wedding of</p>
+              <h1 className="cover-names">Riyo Setiawan &amp; Lukmaniati</h1>
+            </div>
+          </div>
+        </section>
+      </div>
+    }>
+      <CoverContent />
+    </Suspense>
   );
 }
